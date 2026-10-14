@@ -1,0 +1,2 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+slurmstepd: error: *** JOB 975160 ON ouce-cn47 CANCELLED AT 2026-10-14T09:46:16 ***

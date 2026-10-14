@@ -1,0 +1,5 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+Traceback (most recent call last):
+  File "/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_monthly_breakdown.py", line 49, in <module>
+    import cartopy.crs as ccrs
+ModuleNotFoundError: No module named 'cartopy'

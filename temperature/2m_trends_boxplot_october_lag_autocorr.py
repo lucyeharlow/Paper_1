@@ -14,7 +14,9 @@ METHOD
   Unreadable MERRA2 / JRA-3Q / CHIRTS files are skipped (reported) and left as missing months.
   Anomalies are taken against each dataset's own 1991-2020 monthly climatology.
   ERA5, MERRA2, JRA-3Q, NOAA and CRUTEM use their maximal shared period; CHIRTS 1983-2016.
-  CRUTEM cells with > 50 % missing months in the analysis period are dropped.
+  NO MISSING VALUES: a cell's trend for a month is only computed if that month has a value
+  in every year of the period; otherwise the cell is left out (never filled with 0).
+  Regional series average only over those complete cells.
   Grid-cell OLS trends (degC/decade) per dataset and calendar month, on native grids.
   Significance: lag-1 autocorrelation (r1) of the OLS residuals gives an effective sample
   size n_eff = n (1 - r1) / (1 + r1), capped at n (Santer et al. 2000, JGR 105, 7337).
@@ -30,7 +32,7 @@ OUTPUTS (suffix _ar1)
 
 PANELS
   (a) monthly trend distributions (boxplots)   (b)-(g) October trend maps
-  (h) area-weighted October anomaly series. Stars mark CRUTEM cells starting after 2000.
+  (h) area-weighted October anomaly series.
 """
 from __future__ import annotations
 import calendar
@@ -51,7 +53,7 @@ import cartopy.feature as cfeature
 # ---------------------------------------------------------------- settings
 scratch = Path("/soge-home/users/jesu4127/scratch")
 data_dir = Path("/soge-home/users/jesu4127/data")
-out_dir = Path("/soge-home/users/jesu4127/Paper_1/section1_radiation/plots")
+out_dir = Path("/soge-home/users/jesu4127/Paper_1/temperature/plots")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 era5_file = scratch / "era5/global_2m_temperature.nc"
@@ -67,11 +69,9 @@ crutem_file = data_dir / "crutem/CRUTEM.5.1.0.0.anomalies.nc"
 
 lon_min, lon_max, lat_min, lat_max = 10.0, 40.0, -35.0, -10.0
 target_month = 10
-late_start_year = 2000          # CRUTEM cells first valid after this year get a star
 min_years = 20
 chirts_years = set(range(1983, 2017))
 clim_years = range(1991, 2021)
-crutem_max_nan_fraction = 0.50
 trend_levels = np.linspace(-0.6, 0.6, 25)
 
 labels = {"ERA5": "ERA5", "MERRA2": "MERRA-2", "JRA-3Q": "JRA-3Q", "CHIRTS": "CHIRTS",
@@ -210,6 +210,7 @@ def ols_stats(da):
     Returns trend, n, r1 (lag-1 autocorrelation of residuals), n_eff and p.
     Years are put on a gap-free axis first, so lag 1 always means the previous year.
     """
+    da = complete(da)                       # no NaNs: drop cells with any missing year
     years = da.time.dt.year.values
     da = da.assign_coords(time=years).reindex(time=np.arange(years.min(), years.max() + 1))
     ok = da.notnull()
@@ -229,8 +230,32 @@ def ols_stats(da):
 
 
 def october_series(da):
-    oct_ = da.sel(time=da.time.dt.month == target_month)
+    """Area-weighted mean over cells with an October value in every year (no NaNs)."""
+    oct_ = complete(da.sel(time=da.time.dt.month == target_month))
     return oct_.weighted(np.cos(np.deg2rad(oct_.lat))).mean(("lat", "lon"))
+
+
+def complete(da):
+    """Keep only cells with a value at every time step."""
+    return da.where(da.notnull().all("time"))
+
+
+def describe(da):
+    """Summary of the valid trend values; NaN if there are none (no crash)."""
+    v = valid(da)
+    q = np.percentile(v, [0, 25, 50, 75, 100]) if v.size else [np.nan] * 5
+    return {"n_gridcells": v.size, "mean_C_per_decade": v.mean() if v.size else np.nan,
+            "min_C_per_decade": q[0], "q25_C_per_decade": q[1], "median_C_per_decade": q[2],
+            "q75_C_per_decade": q[3], "max_C_per_decade": q[4]}
+
+
+def regional(st):
+    """'trend, p, n_eff/n' text for a regional series, or a note if there is none."""
+    if np.isnan(float(st.trend)):
+        return "no complete cells"
+    p = float(st.p)
+    return (f"{float(st.trend):+.2f} °C/dec, {'p < 0.001' if p < 0.001 else f'p = {p:.3f}'}, "
+            f"n$_{{eff}}$ = {float(st.n_eff):.0f}/{int(st.n)}")
 
 
 def valid(da):
@@ -243,7 +268,7 @@ def span(years):
     return f"{years[0]}-{years[-1]}"
 
 
-def plot_map(ax, st, name, years, panel, norm, stars=None):
+def plot_map(ax, st, name, years, panel, norm):
     trend = st.trend
     mesh = ax.pcolormesh(trend.lon, trend.lat, trend, transform=pc, cmap="RdBu_r",
                          norm=norm, shading="nearest")
@@ -256,9 +281,10 @@ def plot_map(ax, st, name, years, panel, norm, stars=None):
         keep &= sig
         ax.scatter(lon2[keep], lat2[keep], s=1.5, color="black", linewidths=0, zorder=6,
                    transform=pc)
-    ax.text(0.02, 0.03, f"n$_{{eff}}$ ≈ {float(st.n_eff.median()):.0f} (n = "
-            f"{float(st.n.median()):.0f})\n{100 * np.nanmean(sig[np.isfinite(st.p.values)]):.0f}% "
-            f"sig.", transform=ax.transAxes, fontsize=7, va="bottom", zorder=8,
+    ok = np.isfinite(st.p.values)
+    note = (f"n$_{{eff}}$ ≈ {float(st.n_eff.median()):.0f} (n = {float(st.n.median()):.0f})\n"
+            f"{100 * sig[ok].mean():.0f}% sig." if ok.any() else "no complete cells")
+    ax.text(0.02, 0.03, note, transform=ax.transAxes, fontsize=7, va="bottom", zorder=8,
             bbox=dict(boxstyle="square,pad=0.15", facecolor="white", edgecolor="none", alpha=0.8))
     ax.add_feature(cfeature.COASTLINE.with_scale("10m"), linewidth=1.0, edgecolor="black", zorder=5)
     ax.add_feature(cfeature.BORDERS.with_scale("10m"), linewidth=0.9, edgecolor="black", zorder=5)
@@ -266,10 +292,6 @@ def plot_map(ax, st, name, years, panel, norm, stars=None):
     gl = ax.gridlines(draw_labels=True, linewidth=0.3, alpha=0.4, linestyle="--")
     gl.top_labels = gl.right_labels = False
     gl.xlabel_style = gl.ylabel_style = {"fontsize": 8}
-    if stars is not None and stars.any():
-        lon2, lat2 = np.meshgrid(stars.lon, stars.lat)
-        ax.scatter(lon2[stars.values], lat2[stars.values], marker="*", s=24, color="black",
-                   edgecolors="white", linewidths=0.35, zorder=7, transform=pc)
     ax.set_title(f"({span(years)})", fontsize=9, pad=6)
     ax.text(0.5, 1.16, labels[name], transform=ax.transAxes, fontsize=12,
             fontweight="bold", ha="center", va="bottom")
@@ -278,7 +300,7 @@ def plot_map(ax, st, name, years, panel, norm, stars=None):
     return mesh
 
 
-def make_figure(results, periods, late, series, series_stats):
+def make_figure(results, periods, series, series_stats):
     trends = {n: r.trend for n, r in results.items()}
     print("\nCreating figure...")
     fig = plt.figure(figsize=(18, 12), dpi=300)
@@ -294,10 +316,6 @@ def make_figure(results, periods, late, series, series_stats):
                                manage_ticks=False, whiskerprops=line, capprops=line,
                                medianprops=line, boxprops=dict(facecolor=colours[name],
                                edgecolor="black", linewidth=0.9, alpha=0.9))
-    for m in months:
-        if late.sel(month=m).any():
-            y = np.mean(bps["CRUTEM"]["medians"][m - 1].get_ydata())
-            ax.plot(m + 0.15, y, "*", ms=7, mfc="black", mec="white", mew=0.4, zorder=6)
     ax.axhline(0, linestyle="--", linewidth=0.8, color="black")
     ax.set(xlim=(0.6, 12.8), xticks=months, xticklabels=calendar.month_abbr[1:])
     ax.set_xlabel("Month", labelpad=8, fontsize=10)
@@ -314,8 +332,7 @@ def make_figure(results, periods, late, series, series_stats):
     map_axes = [fig.add_subplot(gs[1, i], projection=pc) for i in range(6)]
     for ax_map, name, panel in zip(map_axes, trends, "bcdefg"):
         mesh = plot_map(ax_map, results[name].sel(month=target_month), name, periods[name],
-                        f"({panel})", norm,
-                        late.sel(month=target_month) if name == "CRUTEM" else None)
+                        f"({panel})", norm)
     fig.text(0.5, 0.66, "October trends", ha="center", va="center", fontsize=14, fontweight="bold")
     cbar = fig.colorbar(mesh, ax=map_axes, orientation="horizontal", fraction=0.06,
                         pad=0.1, aspect=45, shrink=0.9)
@@ -324,11 +341,9 @@ def make_figure(results, periods, late, series, series_stats):
     # (h) area-weighted October series
     ax = fig.add_subplot(gs[2, :])
     for name, s in series.items():
-        st = series_stats[name]
-        ax.plot(s.time.dt.year, s, color=colours[name], linewidth=2,
-                label=f"{labels[name]}: {float(st.trend):+.2f} °C/dec, "
-                      f"{'p < 0.001' if float(st.p) < 0.001 else f'p = {float(st.p):.3f}'}, "
-                      f"n$_{{eff}}$ = {float(st.n_eff):.0f}/{int(st.n)}")
+        if s.notnull().any():
+            ax.plot(s.time.dt.year, s, color=colours[name], linewidth=2,
+                    label=f"{labels[name]}: {regional(series_stats[name])}")
     all_years = [y for p in periods.values() for y in p]
     ax.set_xlim(min(all_years), max(all_years))
     ax.set_title("October area-weighted anomalies", fontsize=12, pad=10)
@@ -365,15 +380,6 @@ def main():
         print(f"  {labels[name]:<26}{span(yrs)} ({len(yrs)} years)")
     data = {n: select_years(da, periods[n]) for n, da in data.items()}
 
-    # CRUTEM coverage filter, applied over the analysis period only
-    nan_fraction = data["CRUTEM"].isnull().mean("time")
-    keep = nan_fraction <= crutem_max_nan_fraction
-    data["CRUTEM"] = data["CRUTEM"].where(keep)
-    print(f"\nCRUTEM cells retained: {int(keep.sum())}/{keep.size} "
-          f"(<= {crutem_max_nan_fraction:.0%} missing)")
-    crutem = data["CRUTEM"]
-    first_year = crutem.time.dt.year.where(crutem.notnull()).groupby("time.month").min("time")
-    late = first_year > late_start_year
 
     print("\nTrends with AR(1)-corrected significance...")
     results = {n: da.groupby("time.month").map(ols_stats) for n, da in data.items()}
@@ -385,11 +391,14 @@ def main():
           f"{'n_eff':>6} {'% sig':>6}   regional trend / p / n_eff")
     for name, r in results.items():
         oct_ = r.sel(month=target_month)
-        v, st = valid(oct_.trend), series_stats[name]
-        print(f"  {labels[name]:<26}{v.size:>7,} {v.mean():+8.4f} {np.median(v):+8.4f}   "
-              f"{float(oct_.n.median()):>3.0f} {float(oct_.r1.median()):+6.2f} "
-              f"{float(oct_.n_eff.median()):>6.1f} {100 * float((oct_.p < alpha).sum() / oct_.p.notnull().sum()):>5.0f}%"
-              f"   {float(st.trend):+.3f} / {float(st.p):.3f} / {float(st.n_eff):.1f} of {int(st.n)}")
+        d = describe(oct_.trend)
+        if not d["n_gridcells"]:
+            print(f"  {labels[name]:<26}no complete cells"); continue
+        print(f"  {labels[name]:<26}{d['n_gridcells']:>7,} {d['mean_C_per_decade']:+8.4f} "
+              f"{d['median_C_per_decade']:+8.4f}   {float(oct_.n.median()):>3.0f} "
+              f"{float(oct_.r1.median()):+6.2f} {float(oct_.n_eff.median()):>6.1f} "
+              f"{100 * float((oct_.p < alpha).sum() / oct_.p.notnull().sum()):>5.0f}%   "
+              f"{regional(series_stats[name]).replace('$_{eff}$', '_eff')}")
         key = name.lower().replace("-", "")
         for var, suffix in (("trend", "trend_C_per_decade"), ("n_eff", "n_eff"), ("p", "p_value")):
             np.save(out_dir / f"{key}_october_{suffix}_ar1.npy", oct_[var].values)
@@ -398,22 +407,18 @@ def main():
     for m in months:
         for name, r in results.items():
             rm = r.sel(month=m)
-            v = valid(rm.trend)
             rows.append({"dataset": name, "month": calendar.month_abbr[m], "month_number": m,
-                         "n_gridcells": v.size, "mean_C_per_decade": v.mean(),
-                         "q25_C_per_decade": np.percentile(v, 25),
-                         "median_C_per_decade": np.median(v),
-                         "q75_C_per_decade": np.percentile(v, 75),
-                         "min_C_per_decade": v.min(), "max_C_per_decade": v.max(),
+                         **describe(rm.trend),
                          "median_n_years": float(rm.n.median()),
                          "median_r1": float(rm.r1.median()),
                          "median_n_eff": float(rm.n_eff.median()),
                          "min_n_eff": float(rm.n_eff.min()),
-                         "pct_cells_significant": 100 * float((rm.p < alpha).sum() / rm.p.notnull().sum())})
+                         "pct_cells_significant": 100 * float((rm.p < alpha).sum())
+                                                  / max(int(rm.p.notnull().sum()), 1)})
     pd.DataFrame(rows).to_csv(out_dir / "monthly_trends_summary_ar1.csv", index=False)
     print(f"Saved summary and .npy files to {out_dir}")
 
-    make_figure(results, periods, late, series, series_stats)
+    make_figure(results, periods, series, series_stats)
 
 
 if __name__ == "__main__":

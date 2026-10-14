@@ -1,0 +1,17 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_boxplot_october_lag_autocorr.py:389: RuntimeWarning: Mean of empty slice
+  print(f"  {labels[name]:<26}{v.size:>7,} {v.mean():+8.4f} {np.median(v):+8.4f}   "
+/hn01-home/jesu4127/micromamba/envs/myenv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/hn01-home/jesu4127/micromamba/envs/myenv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+Traceback (most recent call last):
+  File "/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_boxplot_october_lag_autocorr.py", line 420, in <module>
+    main()
+    ~~~~^^
+  File "/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_boxplot_october_lag_autocorr.py", line 392, in main
+    f"   {float(st.trend):+.3f} / {float(st.p):.3f} / {float(st.n_eff):.1f} of {int(st.n)}")
+                                                                                ~~~^^^^^^
+  File "/hn01-home/jesu4127/micromamba/envs/myenv/lib/python3.13/site-packages/xarray/core/common.py", line 161, in __int__
+    return int(self.values)
+ValueError: cannot convert float NaN to integer

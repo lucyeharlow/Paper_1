@@ -1,0 +1,40 @@
+============================================
+CHIRTS overlay job
+Job ID: 975161
+Node: ouce-cn47
+Started: Wed 14 Oct 09:44:44 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA Global Temp v6.1.0   1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends...
+
+OCTOBER DIAGNOSTICS (degC/decade)
+  ERA5                      complete cells= 12,221  min -0.0931  mean +0.3493  median +0.3552  max +0.8503
+  MERRA-2                   complete cells=  2,499  min -0.1300  mean +0.2486  median +0.2693  max +0.7005
+  JRA-3Q                    complete cells=  5,280  min -0.1283  mean +0.2905  median +0.3065  max +0.8797
+  CHIRTS                    complete cells=199,853  min -0.3076  mean +0.3215  median +0.3287  max +0.9085
+  NOAA Global Temp v6.1.0   complete cells=     30  min -0.0231  mean +0.2690  median +0.3128  max +0.4196
+  CRUTEM5                   complete cells=      5  min +0.2659  mean +0.3566  median +0.3673  max +0.4250
+Saved summary and .npy files to /soge-home/users/jesu4127/Paper_1/temperature/plots
+
+Creating figure...
+Saved figure: /soge-home/users/jesu4127/Paper_1/temperature/plots/southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries.png
+
+Python version:
+Python 3.12.3
+
+Starting analysis...
+============================================

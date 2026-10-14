@@ -1,0 +1,11 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+Traceback (most recent call last):
+  File "/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_boxplot_october_condensed.py", line 357, in <module>
+    main()
+    ~~~~^^
+  File "/soge-home/users/jesu4127/Paper_1/temperature/2m_trends_boxplot_october_condensed.py", line 335, in main
+    print(f"  {labels[name]:<26}n={v.size:>7,}  min {v.min():+.4f}  mean {v.mean():+.4f}  "
+                                                     ~~~~~^^
+  File "/hn01-home/jesu4127/micromamba/envs/myenv/lib/python3.13/site-packages/numpy/_core/_methods.py", line 45, in _amin
+    return umr_minimum(a, axis, None, out, keepdims, initial, where)
+ValueError: zero-size array to reduction operation minimum which has no identity

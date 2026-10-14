@@ -7,8 +7,8 @@
 #SBATCH --partition=Long
 #SBATCH --mail-type=START,END,FAIL
 #SBATCH --mail-user=katcutain@hotmail.com
-#SBATCH --output=/soge-home/users/jesu4127/Paper_1/section1_radiation/logs/overlay_%j.out
-#SBATCH --error=/soge-home/users/jesu4127/Paper_1/section1_radiation/logs/overlay_%j.err
+#SBATCH --output=/soge-home/users/jesu4127/Paper_1/temperature/logs/overlay_2_%j.out
+#SBATCH --error=/soge-home/users/jesu4127/Paper_1/temperature/logs/overlay_2_%j.err
 
 set -euo pipefail
 
@@ -19,8 +19,8 @@ echo "Node: $SLURMD_NODENAME"
 echo "Started: $(date)"
 echo "============================================"
 
-WORKDIR="/soge-home/users/jesu4127/Paper_1/section1_radiation"
-/hn01-home/jesu4127/micromamba/envs/myenv/bin/python "$WORKDIR/2m_trends_boxplot_october_lag_autocorr.py"
+WORKDIR="/soge-home/users/jesu4127/Paper_1/temperature"
+/hn01-home/jesu4127/micromamba/envs/myenv/bin/python "$WORKDIR/2m_trends_monthly_breakdown.py"
 
 echo
 echo "Python version:"
@@ -30,7 +30,7 @@ echo
 echo "Starting analysis..."
 echo "============================================"
 
-python "$WORKDIR/2m_trends_boxplot_october_lag_autocorr.py"
+python "$WORKDIR/2m_trends_monthly_breakdown.py"
 
 echo
 echo "============================================"

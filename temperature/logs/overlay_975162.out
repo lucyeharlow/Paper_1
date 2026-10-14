@@ -1,0 +1,41 @@
+============================================
+CHIRTS overlay job
+Job ID: 975162
+Node: ouce-cn47
+Started: Wed 14 Oct 09:45:29 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA Global Temp v6.1.0   1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends with AR(1)-corrected significance...
+
+OCTOBER DIAGNOSTICS (degC/decade; significance at p < 0.05)
+  dataset                     cells     mean   median     n     r1  n_eff  % sig   regional trend / p / n_eff
+  ERA5                       12,221  +0.3493  +0.3552    46  -0.08   46.0    86%   +0.35 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     2,499  +0.2486  +0.2693    46  -0.09   46.0    73%   +0.25 °C/dec, p < 0.001, n_eff = 46/46
+  JRA-3Q                      5,280  +0.2905  +0.3065    46  -0.06   46.0    73%   +0.29 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,853  +0.3215  +0.3287    34  -0.08   34.0    60%   +0.32 °C/dec, p < 0.001, n_eff = 34/34
+  NOAA Global Temp v6.1.0        30  +0.2690  +0.3128    46  -0.11   46.0    90%   +0.27 °C/dec, p < 0.001, n_eff = 46/46
+  CRUTEM5                         5  +0.3566  +0.3673    46  -0.01   46.0   100%   +0.36 °C/dec, p < 0.001, n_eff = 46/46
+Saved summary and .npy files to /soge-home/users/jesu4127/Paper_1/temperature/plots
+
+Creating figure...
+Saved figure: /soge-home/users/jesu4127/Paper_1/temperature/plots/southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_ar1.png
+
+Python version:
+Python 3.12.3
+
+Starting analysis...
+============================================
