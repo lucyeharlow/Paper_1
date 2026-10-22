@@ -1,0 +1,356 @@
+============================================
+PV job
+Job ID: 978658
+Node: ouce-cn55
+Started: Mon 19 Oct 14:54:41 UTC 2026
+============================================
+Reading 138 dataset-months with 8 worker(s); cache: /soge-home/users/jesu4127/Paper_1/vertical_velocity/fixed/cache_pv_domain
+  MERRA-2 1981 done  [1/138, 1 s]
+  MERRA-2 1982 done  [2/138, 1 s]
+  MERRA-2 1980 done  [3/138, 1 s]
+  JRA-3Q 1981 done  [4/138, 1 s]
+  ERA5 1981 done  [5/138, 1 s]
+  JRA-3Q 1980 done  [6/138, 1 s]
+  ERA5 1980 done  [7/138, 1 s]
+  ERA5 1982 done  [8/138, 1 s]
+  MERRA-2 1984 done  [9/138, 1 s]
+  JRA-3Q 1983 done  [10/138, 1 s]
+  JRA-3Q 1982 done  [11/138, 1 s]
+  ERA5 1984 done  [12/138, 1 s]
+  ERA5 1983 done  [13/138, 1 s]
+  JRA-3Q 1984 done  [14/138, 1 s]
+  MERRA-2 1983 done  [15/138, 1 s]
+  ERA5 1985 done  [16/138, 1 s]
+  MERRA-2 1986 done  [17/138, 1 s]
+  MERRA-2 1985 done  [18/138, 1 s]
+  JRA-3Q 1985 done  [19/138, 1 s]
+  ERA5 1986 done  [20/138, 1 s]
+  MERRA-2 1987 done  [21/138, 1 s]
+  ERA5 1987 done  [22/138, 1 s]
+  JRA-3Q 1986 done  [23/138, 1 s]
+  JRA-3Q 1987 done  [24/138, 1 s]
+  MERRA-2 1988 done  [25/138, 1 s]
+  ERA5 1988 done  [26/138, 1 s]
+  JRA-3Q 1988 done  [27/138, 1 s]
+  ERA5 1989 done  [28/138, 1 s]
+  MERRA-2 1989 done  [29/138, 1 s]
+  JRA-3Q 1989 done  [30/138, 1 s]
+  ERA5 1990 done  [31/138, 1 s]
+  MERRA-2 1990 done  [32/138, 1 s]
+  JRA-3Q 1990 done  [33/138, 1 s]
+  MERRA-2 1991 done  [34/138, 1 s]
+  ERA5 1991 done  [35/138, 1 s]
+  JRA-3Q 1991 done  [36/138, 1 s]
+  ERA5 1992 done  [37/138, 1 s]
+  MERRA-2 1992 done  [38/138, 1 s]
+  JRA-3Q 1992 done  [39/138, 1 s]
+  ERA5 1994 done  [40/138, 1 s]
+  MERRA-2 1994 done  [41/138, 1 s]
+  MERRA-2 1993 done  [42/138, 1 s]
+  ERA5 1995 done  [43/138, 1 s]
+  JRA-3Q 1994 done  [44/138, 1 s]
+  MERRA-2 1995 done  [45/138, 1 s]
+  JRA-3Q 1993 done  [46/138, 1 s]
+  ERA5 1993 done  [47/138, 1 s]
+  MERRA-2 1996 done  [48/138, 1 s]
+  ERA5 1996 done  [49/138, 1 s]
+  JRA-3Q 1995 done  [50/138, 1 s]
+  JRA-3Q 1996 done  [51/138, 1 s]
+  MERRA-2 1997 done  [52/138, 1 s]
+  ERA5 1997 done  [53/138, 1 s]
+  JRA-3Q 1997 done  [54/138, 1 s]
+  ERA5 1998 done  [55/138, 1 s]
+  MERRA-2 1998 done  [56/138, 1 s]
+  MERRA-2 1999 done  [57/138, 1 s]
+  ERA5 1999 done  [58/138, 1 s]
+  JRA-3Q 1998 done  [59/138, 1 s]
+  MERRA-2 2000 done  [60/138, 1 s]
+  ERA5 2000 done  [61/138, 1 s]
+  JRA-3Q 1999 done  [62/138, 1 s]
+  JRA-3Q 2000 done  [63/138, 1 s]
+  MERRA-2 2001 done  [64/138, 1 s]
+  ERA5 2001 done  [65/138, 1 s]
+  JRA-3Q 2001 done  [66/138, 1 s]
+  ERA5 2002 done  [67/138, 1 s]
+  MERRA-2 2003 done  [68/138, 1 s]
+  JRA-3Q 2002 done  [69/138, 1 s]
+  ERA5 2003 done  [70/138, 1 s]
+  MERRA-2 2002 done  [71/138, 1 s]
+  JRA-3Q 2003 done  [72/138, 1 s]
+  ERA5 2004 done  [73/138, 1 s]
+  MERRA-2 2004 done  [74/138, 1 s]
+  JRA-3Q 2004 done  [75/138, 1 s]
+  MERRA-2 2005 done  [76/138, 1 s]
+  ERA5 2005 done  [77/138, 1 s]
+  JRA-3Q 2005 done  [78/138, 1 s]
+  MERRA-2 2006 done  [79/138, 1 s]
+  JRA-3Q 2006 done  [80/138, 1 s]
+  ERA5 2007 done  [81/138, 1 s]
+  ERA5 2006 done  [82/138, 1 s]
+  MERRA-2 2007 done  [83/138, 1 s]
+  MERRA-2 2008 done  [84/138, 1 s]
+  ERA5 2008 done  [85/138, 1 s]
+  JRA-3Q 2008 done  [86/138, 1 s]
+  ERA5 2009 done  [87/138, 1 s]
+  JRA-3Q 2007 done  [88/138, 1 s]
+  JRA-3Q 2009 done  [89/138, 1 s]
+  MERRA-2 2009 done  [90/138, 1 s]
+  ERA5 2010 done  [91/138, 1 s]
+  MERRA-2 2010 done  [92/138, 1 s]
+  JRA-3Q 2010 done  [93/138, 1 s]
+  MERRA-2 2011 done  [94/138, 1 s]
+  ERA5 2011 done  [95/138, 1 s]
+  JRA-3Q 2011 done  [96/138, 1 s]
+  MERRA-2 2012 done  [97/138, 1 s]
+  ERA5 2012 done  [98/138, 1 s]
+  JRA-3Q 2012 done  [99/138, 1 s]
+  ERA5 2013 done  [100/138, 1 s]
+  JRA-3Q 2013 done  [101/138, 1 s]
+  MERRA-2 2013 done  [102/138, 1 s]
+  MERRA-2 2014 done  [103/138, 1 s]
+  JRA-3Q 2014 done  [104/138, 1 s]
+  ERA5 2014 done  [105/138, 1 s]
+  ERA5 2015 done  [106/138, 1 s]
+  MERRA-2 2015 done  [107/138, 1 s]
+  JRA-3Q 2015 done  [108/138, 1 s]
+  JRA-3Q 2016 done  [109/138, 1 s]
+  ERA5 2017 done  [110/138, 1 s]
+  MERRA-2 2016 done  [111/138, 1 s]
+  MERRA-2 2017 done  [112/138, 1 s]
+  ERA5 2016 done  [113/138, 1 s]
+  ERA5 2018 done  [114/138, 1 s]
+  JRA-3Q 2017 done  [115/138, 1 s]
+  MERRA-2 2018 done  [116/138, 1 s]
+  JRA-3Q 2018 done  [117/138, 1 s]
+  MERRA-2 2019 done  [118/138, 1 s]
+  JRA-3Q 2019 done  [119/138, 1 s]
+  MERRA-2 2020 done  [120/138, 1 s]
+  ERA5 2020 done  [121/138, 1 s]
+  ERA5 2019 done  [122/138, 1 s]
+  ERA5 2021 done  [123/138, 1 s]
+  JRA-3Q 2020 done  [124/138, 1 s]
+  JRA-3Q 2021 done  [125/138, 1 s]
+  MERRA-2 2021 done  [126/138, 1 s]
+  ERA5 2022 done  [127/138, 1 s]
+  JRA-3Q 2022 done  [128/138, 1 s]
+  MERRA-2 2023 done  [129/138, 1 s]
+  MERRA-2 2022 done  [130/138, 1 s]
+  ERA5 2023 done  [131/138, 1 s]
+  JRA-3Q 2023 done  [132/138, 1 s]
+  MERRA-2 2024 done  [133/138, 1 s]
+  ERA5 2024 done  [134/138, 1 s]
+  JRA-3Q 2024 done  [135/138, 1 s]
+  MERRA-2 2025 done  [136/138, 1 s]
+  ERA5 2025 done  [137/138, 1 s]
+  JRA-3Q 2025 done  [138/138, 1 s]
+Common years 1980-2025 (n = 46); 0 month-year(s) missing in at least one dataset; complete boxes per level: [2501]
+Loading ERA5 ...
+Loading MERRA-2 ...
+  ERA5     1980-2025 (46 years), 205 x 305 grid, 0 missing month(s)
+  MERRA-2  1980-2025 (46 years), 103 x 123 grid, 0 missing month(s)
+dataset                                     category  pct_area_all  pct_area_sig_r  mean_r  mean_r_where_sig
+   ERA5 Strengthening subsidence, |PV| strengthening         16.10            0.00   -0.03               NaN
+   ERA5     Strengthening subsidence, |PV| weakening         16.16            0.00   -0.01               NaN
+   ERA5     Weakening subsidence, |PV| strengthening         17.84            0.00    0.01               NaN
+   ERA5         Weakening subsidence, |PV| weakening         22.35            0.00   -0.00               NaN
+   ERA5           New subsidence, |PV| strengthening          0.82            0.00   -0.09               NaN
+   ERA5               New subsidence, |PV| weakening          1.03            0.00   -0.07               NaN
+   ERA5         Weakening ascent, |PV| strengthening         10.44            0.00    0.00               NaN
+   ERA5             Weakening ascent, |PV| weakening          5.63            0.00    0.04               NaN
+   ERA5     Strengthening ascent, |PV| strengthening          6.19            0.00    0.01               NaN
+   ERA5         Strengthening ascent, |PV| weakening          3.02            0.00    0.04               NaN
+   ERA5               New ascent, |PV| strengthening          0.20            0.00   -0.17               NaN
+   ERA5                   New ascent, |PV| weakening          0.21            0.00   -0.02               NaN
+MERRA-2 Strengthening subsidence, |PV| strengthening         15.73            0.00   -0.03               NaN
+MERRA-2     Strengthening subsidence, |PV| weakening         11.51            0.04   -0.03              0.55
+MERRA-2     Weakening subsidence, |PV| strengthening         10.53            0.00    0.00               NaN
+MERRA-2         Weakening subsidence, |PV| weakening         37.32            0.00    0.01               NaN
+MERRA-2           New subsidence, |PV| strengthening          1.82            0.00    0.04               NaN
+MERRA-2               New subsidence, |PV| weakening          0.92            0.04    0.06              0.56
+MERRA-2         Weakening ascent, |PV| strengthening         11.34            0.04    0.02             -0.58
+MERRA-2             Weakening ascent, |PV| weakening          4.68            0.00   -0.02               NaN
+MERRA-2     Strengthening ascent, |PV| strengthening          2.10            0.00   -0.07               NaN
+MERRA-2         Strengthening ascent, |PV| weakening          2.88            0.04   -0.01              0.55
+MERRA-2               New ascent, |PV| strengthening          0.45            0.00   -0.05               NaN
+MERRA-2                   New ascent, |PV| weakening          0.72            0.00    0.02               NaN
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_correlation/pv_omega_correlation_categories_oct_300hPa.png
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Reading 138 dataset-months with 8 worker(s); cache: /soge-home/users/jesu4127/Paper_1/vertical_velocity/fixed/cache_pv_domain
+  MERRA-2 1982 done  [1/138, 0 s]
+  ERA5 1982 done  [2/138, 0 s]
+  JRA-3Q 1980 done  [3/138, 0 s]
+  MERRA-2 1981 done  [4/138, 0 s]
+  JRA-3Q 1981 done  [5/138, 0 s]
+  ERA5 1981 done  [6/138, 0 s]
+  MERRA-2 1980 done  [7/138, 0 s]
+  ERA5 1980 done  [8/138, 0 s]
+  MERRA-2 1983 done  [9/138, 0 s]
+  JRA-3Q 1982 done  [10/138, 0 s]
+  ERA5 1983 done  [11/138, 0 s]
+  JRA-3Q 1983 done  [12/138, 0 s]
+  MERRA-2 1984 done  [13/138, 0 s]
+  ERA5 1984 done  [14/138, 0 s]
+  JRA-3Q 1984 done  [15/138, 1 s]
+  MERRA-2 1985 done  [16/138, 1 s]
+  ERA5 1986 done  [17/138, 1 s]
+  ERA5 1985 done  [18/138, 1 s]
+  MERRA-2 1986 done  [19/138, 1 s]
+  JRA-3Q 1985 done  [20/138, 1 s]
+  JRA-3Q 1986 done  [21/138, 1 s]
+  ERA5 1987 done  [22/138, 1 s]
+  MERRA-2 1987 done  [23/138, 1 s]
+  MERRA-2 1989 done  [24/138, 1 s]
+  JRA-3Q 1987 done  [25/138, 1 s]
+  MERRA-2 1988 done  [26/138, 1 s]
+  JRA-3Q 1988 done  [27/138, 1 s]
+  ERA5 1989 done  [28/138, 1 s]
+  ERA5 1988 done  [29/138, 1 s]
+  JRA-3Q 1989 done  [30/138, 1 s]
+  MERRA-2 1990 done  [31/138, 1 s]
+  ERA5 1990 done  [32/138, 1 s]
+  MERRA-2 1991 done  [33/138, 1 s]
+  JRA-3Q 1990 done  [34/138, 1 s]
+  ERA5 1991 done  [35/138, 1 s]
+  MERRA-2 1992 done  [36/138, 1 s]
+  ERA5 1992 done  [37/138, 1 s]
+  JRA-3Q 1991 done  [38/138, 1 s]
+  MERRA-2 1993 done  [39/138, 1 s]
+  ERA5 1993 done  [40/138, 1 s]
+  JRA-3Q 1993 done  [41/138, 1 s]
+  ERA5 1994 done  [42/138, 1 s]
+  JRA-3Q 1992 done  [43/138, 1 s]
+  MERRA-2 1994 done  [44/138, 1 s]
+  JRA-3Q 1994 done  [45/138, 1 s]
+  ERA5 1995 done  [46/138, 1 s]
+  MERRA-2 1995 done  [47/138, 1 s]
+  MERRA-2 1996 done  [48/138, 1 s]
+  ERA5 1996 done  [49/138, 1 s]
+  JRA-3Q 1995 done  [50/138, 1 s]
+  JRA-3Q 1996 done  [51/138, 1 s]
+  ERA5 1997 done  [52/138, 1 s]
+  ERA5 1998 done  [53/138, 1 s]
+  MERRA-2 1998 done  [54/138, 1 s]
+  JRA-3Q 1998 done  [55/138, 1 s]
+  ERA5 1999 done  [56/138, 1 s]
+  MERRA-2 1999 done  [57/138, 1 s]
+  MERRA-2 1997 done  [58/138, 1 s]
+  JRA-3Q 1999 done  [59/138, 1 s]
+  JRA-3Q 1997 done  [60/138, 1 s]
+  MERRA-2 2000 done  [61/138, 1 s]
+  ERA5 2000 done  [62/138, 1 s]
+  MERRA-2 2001 done  [63/138, 1 s]
+  JRA-3Q 2000 done  [64/138, 1 s]
+  ERA5 2001 done  [65/138, 1 s]
+  JRA-3Q 2001 done  [66/138, 1 s]
+  MERRA-2 2002 done  [67/138, 1 s]
+  ERA5 2002 done  [68/138, 1 s]
+  MERRA-2 2003 done  [69/138, 1 s]
+  ERA5 2003 done  [70/138, 1 s]
+  JRA-3Q 2002 done  [71/138, 1 s]
+  ERA5 2004 done  [72/138, 1 s]
+  MERRA-2 2004 done  [73/138, 1 s]
+  JRA-3Q 2003 done  [74/138, 1 s]
+  JRA-3Q 2004 done  [75/138, 1 s]
+  ERA5 2005 done  [76/138, 1 s]
+  MERRA-2 2005 done  [77/138, 1 s]
+  MERRA-2 2006 done  [78/138, 1 s]
+  JRA-3Q 2006 done  [79/138, 1 s]
+  ERA5 2007 done  [80/138, 1 s]
+  ERA5 2006 done  [81/138, 1 s]
+  JRA-3Q 2007 done  [82/138, 1 s]
+  JRA-3Q 2005 done  [83/138, 1 s]
+  MERRA-2 2008 done  [84/138, 1 s]
+  ERA5 2008 done  [85/138, 1 s]
+  MERRA-2 2007 done  [86/138, 1 s]
+  MERRA-2 2009 done  [87/138, 1 s]
+  JRA-3Q 2008 done  [88/138, 1 s]
+  ERA5 2009 done  [89/138, 1 s]
+  JRA-3Q 2009 done  [90/138, 1 s]
+  ERA5 2010 done  [91/138, 1 s]
+  JRA-3Q 2010 done  [92/138, 1 s]
+  MERRA-2 2010 done  [93/138, 1 s]
+  MERRA-2 2011 done  [94/138, 1 s]
+  JRA-3Q 2011 done  [95/138, 1 s]
+  ERA5 2012 done  [96/138, 1 s]
+  ERA5 2011 done  [97/138, 1 s]
+  JRA-3Q 2012 done  [98/138, 1 s]
+  MERRA-2 2013 done  [99/138, 1 s]
+  ERA5 2013 done  [100/138, 1 s]
+  JRA-3Q 2013 done  [101/138, 1 s]
+  MERRA-2 2012 done  [102/138, 1 s]
+  ERA5 2014 done  [103/138, 1 s]
+  MERRA-2 2014 done  [104/138, 1 s]
+  JRA-3Q 2014 done  [105/138, 1 s]
+  ERA5 2015 done  [106/138, 1 s]
+  MERRA-2 2015 done  [107/138, 1 s]
+  MERRA-2 2016 done  [108/138, 1 s]
+  JRA-3Q 2015 done  [109/138, 1 s]
+  ERA5 2016 done  [110/138, 1 s]
+  JRA-3Q 2016 done  [111/138, 1 s]
+  ERA5 2017 done  [112/138, 1 s]
+  MERRA-2 2017 done  [113/138, 1 s]
+  MERRA-2 2018 done  [114/138, 1 s]
+  JRA-3Q 2017 done  [115/138, 1 s]
+  JRA-3Q 2018 done  [116/138, 1 s]
+  ERA5 2018 done  [117/138, 1 s]
+  MERRA-2 2019 done  [118/138, 1 s]
+  ERA5 2019 done  [119/138, 1 s]
+  ERA5 2020 done  [120/138, 1 s]
+  JRA-3Q 2019 done  [121/138, 1 s]
+  MERRA-2 2020 done  [122/138, 1 s]
+  MERRA-2 2021 done  [123/138, 1 s]
+  ERA5 2021 done  [124/138, 1 s]
+  JRA-3Q 2020 done  [125/138, 1 s]
+  JRA-3Q 2022 done  [126/138, 1 s]
+  MERRA-2 2023 done  [127/138, 1 s]
+  JRA-3Q 2021 done  [128/138, 1 s]
+  MERRA-2 2022 done  [129/138, 1 s]
+  ERA5 2022 done  [130/138, 1 s]
+  JRA-3Q 2023 done  [131/138, 1 s]
+  ERA5 2024 done  [132/138, 1 s]
+  ERA5 2023 done  [133/138, 1 s]
+  MERRA-2 2025 done  [134/138, 1 s]
+  MERRA-2 2024 done  [135/138, 1 s]
+  ERA5 2025 done  [136/138, 1 s]
+  JRA-3Q 2024 done  [137/138, 1 s]
+  JRA-3Q 2025 done  [138/138, 1 s]
+Common years 1980-2025 (n = 46); 0 month-year(s) missing in at least one dataset; complete boxes per level: [2501]
+Loading ERA5 ...
+Loading MERRA-2 ...
+  ERA5     1980-2025 (46 years), 205 x 305 grid, 0 missing month(s)
+  MERRA-2  1980-2025 (46 years), 103 x 123 grid, 0 missing month(s)
+dataset                                     category  pct_area_all  pct_area_sig_r  mean_r  mean_r_where_sig
+   ERA5 Strengthening subsidence, |PV| strengthening         16.10            0.00   -0.03               NaN
+   ERA5     Strengthening subsidence, |PV| weakening         16.16            0.00   -0.01               NaN
+   ERA5     Weakening subsidence, |PV| strengthening         17.84            0.00    0.01               NaN
+   ERA5         Weakening subsidence, |PV| weakening         22.35            0.00   -0.00               NaN
+   ERA5           New subsidence, |PV| strengthening          0.82            0.00   -0.09               NaN
+   ERA5               New subsidence, |PV| weakening          1.03            0.00   -0.07               NaN
+   ERA5         Weakening ascent, |PV| strengthening         10.44            0.00    0.00               NaN
+   ERA5             Weakening ascent, |PV| weakening          5.63            0.00    0.04               NaN
+   ERA5     Strengthening ascent, |PV| strengthening          6.19            0.00    0.01               NaN
+   ERA5         Strengthening ascent, |PV| weakening          3.02            0.00    0.04               NaN
+   ERA5               New ascent, |PV| strengthening          0.20            0.00   -0.17               NaN
+   ERA5                   New ascent, |PV| weakening          0.21            0.00   -0.02               NaN
+MERRA-2 Strengthening subsidence, |PV| strengthening         15.73            0.00   -0.03               NaN
+MERRA-2     Strengthening subsidence, |PV| weakening         11.51            0.04   -0.03              0.55
+MERRA-2     Weakening subsidence, |PV| strengthening         10.53            0.00    0.00               NaN
+MERRA-2         Weakening subsidence, |PV| weakening         37.32            0.00    0.01               NaN
+MERRA-2           New subsidence, |PV| strengthening          1.82            0.00    0.04               NaN
+MERRA-2               New subsidence, |PV| weakening          0.92            0.04    0.06              0.56
+MERRA-2         Weakening ascent, |PV| strengthening         11.34            0.04    0.02             -0.58
+MERRA-2             Weakening ascent, |PV| weakening          4.68            0.00   -0.02               NaN
+MERRA-2     Strengthening ascent, |PV| strengthening          2.10            0.00   -0.07               NaN
+MERRA-2         Strengthening ascent, |PV| weakening          2.88            0.04   -0.01              0.55
+MERRA-2               New ascent, |PV| strengthening          0.45            0.00   -0.05               NaN
+MERRA-2                   New ascent, |PV| weakening          0.72            0.00    0.02               NaN
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_correlation/pv_omega_correlation_categories_oct_300hPa.png
+
+============================================
+Finished: Mon 19 Oct 14:56:21 UTC 2026
+============================================

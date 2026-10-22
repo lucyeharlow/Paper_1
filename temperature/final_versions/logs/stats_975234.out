@@ -1,0 +1,20 @@
+============================================
+CHIRTS overlay job
+Job ID: 975234
+Node: ouce-cn47
+Started: Thu 15 Oct 10:26:22 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+  CHIRTS: climatology uses 1991-2016
+
+Q-Q plots of OLS residuals...

@@ -1,0 +1,90 @@
+============================================
+CHIRTS overlay job
+Job ID: 976536
+Node: ouce-cn49
+Started: Fri 16 Oct 16:53:03 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA                           21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA                      1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends with AR(1)-corrected significance...
+
+OCTOBER DIAGNOSTICS (degC/decade, area-weighted; map significance: BH-FDR at 0.1)
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.4523  +0.4577    46  -0.10   46.0        98%   +0.45 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     1,620  +0.3151  +0.3155    46  -0.11   46.0        86%   +0.32 °C/dec, p < 0.001, n_eff = 46/46
+  JRA-3Q                      3,525  +0.3826  +0.3980    46  -0.08   46.0        91%   +0.38 °C/dec, p < 0.001, n_eff = 46/46
+  NOAA                           21  +0.3322  +0.3533    46  -0.11   46.0       100%   +0.33 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,132  +0.3227  +0.3302    34  -0.08   34.0        65%   +0.32 °C/dec, p < 0.001, n_eff = 34/34
+  CRUTEM5                         4  +0.3524  +0.3576    46  -0.00   42.9       100%   +0.35 °C/dec, p < 0.001, n_eff = 46/46
+Saved summary and .npy files to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/revised_final/plots
+
+Creating figure...
+Saved figure: /soge-home/users/jesu4127/Paper_1/temperature/final_versions/revised_final/plots/southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_ar1.png
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA                           21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA                      1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends with AR(1)-corrected significance...
+
+OCTOBER DIAGNOSTICS (degC/decade, area-weighted; map significance: BH-FDR at 0.1)
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.4523  +0.4577    46  -0.10   46.0        98%   +0.45 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     1,620  +0.3151  +0.3155    46  -0.11   46.0        86%   +0.32 °C/dec, p < 0.001, n_eff = 46/46
+  JRA-3Q                      3,525  +0.3826  +0.3980    46  -0.08   46.0        91%   +0.38 °C/dec, p < 0.001, n_eff = 46/46
+  NOAA                           21  +0.3322  +0.3533    46  -0.11   46.0       100%   +0.33 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,132  +0.3227  +0.3302    34  -0.08   34.0        65%   +0.32 °C/dec, p < 0.001, n_eff = 34/34
+  CRUTEM5                         4  +0.3524  +0.3576    46  -0.00   42.9       100%   +0.35 °C/dec, p < 0.001, n_eff = 46/46
+Saved summary and .npy files to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/revised_final/plots
+
+Creating figure...
+Saved figure: /soge-home/users/jesu4127/Paper_1/temperature/final_versions/revised_final/plots/southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_ar1.png
+
+============================================
+Finished: Fri 16 Oct 17:28:55 UTC 2026
+============================================

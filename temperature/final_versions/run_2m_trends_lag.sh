@@ -1,5 +1,5 @@
 #!/bin/bash --login
-#SBATCH --job-name=2m_trend_plotting
+#SBATCH --job-name=stats_assumptions
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64gb
@@ -7,8 +7,8 @@
 #SBATCH --partition=Long
 #SBATCH --mail-type=START,END,FAIL
 #SBATCH --mail-user=katcutain@hotmail.com
-#SBATCH --output=/soge-home/users/jesu4127/Paper_1/temperature/final_versions/logs/overlay_%j.out
-#SBATCH --error=/soge-home/users/jesu4127/Paper_1/temperature/final_versions/logs/overlay_%j.err
+#SBATCH --output=/soge-home/users/jesu4127/Paper_1/temperature/final_versions/logs/stats_%j.out
+#SBATCH --error=/soge-home/users/jesu4127/Paper_1/temperature/final_versions/logs/stats_%j.err
 
 set -euo pipefail
 
@@ -20,7 +20,7 @@ echo "Started: $(date)"
 echo "============================================"
 
 WORKDIR="/soge-home/users/jesu4127/Paper_1/temperature/final_versions"
-/hn01-home/jesu4127/micromamba/envs/myenv/bin/python "$WORKDIR/lag_autocorr.py"
+/hn01-home/jesu4127/micromamba/envs/myenv/bin/python "$WORKDIR/stats_diagnostics.py"
 
 echo
 echo "Python version:"
@@ -30,7 +30,7 @@ echo
 echo "Starting analysis..."
 echo "============================================"
 
-python "$WORKDIR/lag_autocorr.py"
+python "$WORKDIR/stats_diagnostics.py"
 
 echo
 echo "============================================"

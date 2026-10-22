@@ -1,0 +1,346 @@
+============================================
+PV job
+Job ID: 978607
+Node: ouce-cn55
+Started: Mon 19 Oct 14:33:55 UTC 2026
+============================================
+Reading 138 dataset-months with 8 worker(s); cache: /soge-home/users/jesu4127/Paper_1/vertical_velocity/fixed/cache_pv_domain
+  MERRA-2 1982 done  [1/138, 1 s]
+  ERA5 1982 done  [2/138, 1 s]
+  MERRA-2 1980 done  [3/138, 1 s]
+  MERRA-2 1981 done  [4/138, 1 s]
+  JRA-3Q 1981 done  [5/138, 1 s]
+  JRA-3Q 1980 done  [6/138, 1 s]
+  ERA5 1980 done  [7/138, 1 s]
+  ERA5 1981 done  [8/138, 1 s]
+  MERRA-2 1984 done  [9/138, 1 s]
+  MERRA-2 1983 done  [10/138, 1 s]
+  JRA-3Q 1982 done  [11/138, 1 s]
+  ERA5 1983 done  [12/138, 1 s]
+  JRA-3Q 1983 done  [13/138, 1 s]
+  ERA5 1984 done  [14/138, 1 s]
+  JRA-3Q 1984 done  [15/138, 1 s]
+  ERA5 1985 done  [16/138, 1 s]
+  MERRA-2 1985 done  [17/138, 1 s]
+  ERA5 1986 done  [18/138, 1 s]
+  JRA-3Q 1985 done  [19/138, 1 s]
+  ERA5 1987 done  [20/138, 1 s]
+  JRA-3Q 1986 done  [21/138, 1 s]
+  MERRA-2 1986 done  [22/138, 1 s]
+  MERRA-2 1987 done  [23/138, 1 s]
+  JRA-3Q 1987 done  [24/138, 1 s]
+  MERRA-2 1988 done  [25/138, 1 s]
+  JRA-3Q 1988 done  [26/138, 1 s]
+  ERA5 1989 done  [27/138, 1 s]
+  ERA5 1988 done  [28/138, 1 s]
+  JRA-3Q 1989 done  [29/138, 1 s]
+  MERRA-2 1989 done  [30/138, 1 s]
+  MERRA-2 1990 done  [31/138, 1 s]
+  ERA5 1990 done  [32/138, 1 s]
+  JRA-3Q 1990 done  [33/138, 1 s]
+  ERA5 1991 done  [34/138, 1 s]
+  MERRA-2 1991 done  [35/138, 1 s]
+  JRA-3Q 1991 done  [36/138, 1 s]
+  MERRA-2 1992 done  [37/138, 1 s]
+  ERA5 1992 done  [38/138, 1 s]
+  JRA-3Q 1992 done  [39/138, 1 s]
+  MERRA-2 1993 done  [40/138, 1 s]
+  ERA5 1993 done  [41/138, 1 s]
+  MERRA-2 1995 done  [42/138, 2 s]
+  MERRA-2 1994 done  [43/138, 2 s]
+  MERRA-2 1996 done  [44/138, 2 s]
+  ERA5 1996 done  [45/138, 2 s]
+  ERA5 1995 done  [46/138, 2 s]
+  ERA5 1994 done  [47/138, 2 s]
+  MERRA-2 1997 done  [48/138, 2 s]
+  MERRA-2 1998 done  [49/138, 2 s]
+  ERA5 1998 done  [50/138, 2 s]
+  ERA5 1997 done  [51/138, 2 s]
+  MERRA-2 1999 done  [52/138, 2 s]
+  ERA5 1999 done  [53/138, 3 s]
+  ERA5 2000 done  [54/138, 3 s]
+  MERRA-2 2000 done  [55/138, 3 s]
+  JRA-3Q 1993 done  [56/138, 22 s]
+  ERA5 2001 done  [57/138, 23 s]
+  MERRA-2 2001 done  [58/138, 23 s]
+  JRA-3Q 1994 done  [59/138, 28 s]
+  JRA-3Q 1995 done  [60/138, 28 s]
+  ERA5 2002 done  [61/138, 28 s]
+  MERRA-2 2002 done  [62/138, 28 s]
+  JRA-3Q 1997 done  [63/138, 28 s]
+  MERRA-2 2003 done  [64/138, 29 s]
+  JRA-3Q 1996 done  [65/138, 29 s]
+  ERA5 2003 done  [66/138, 29 s]
+  MERRA-2 2004 done  [67/138, 29 s]
+  JRA-3Q 1999 done  [68/138, 29 s]
+  ERA5 2004 done  [69/138, 29 s]
+  MERRA-2 2005 done  [70/138, 29 s]
+  ERA5 2005 done  [71/138, 30 s]
+  JRA-3Q 1998 done  [72/138, 30 s]
+  MERRA-2 2006 done  [73/138, 30 s]
+  ERA5 2006 done  [74/138, 30 s]
+  ERA5 2007 done  [75/138, 30 s]
+  MERRA-2 2007 done  [76/138, 30 s]
+  JRA-3Q 2000 done  [77/138, 31 s]
+  ERA5 2008 done  [78/138, 32 s]
+  MERRA-2 2008 done  [79/138, 32 s]
+  JRA-3Q 2001 done  [80/138, 51 s]
+  ERA5 2009 done  [81/138, 51 s]
+  MERRA-2 2009 done  [82/138, 51 s]
+  JRA-3Q 2002 done  [83/138, 56 s]
+  ERA5 2010 done  [84/138, 56 s]
+  JRA-3Q 2003 done  [85/138, 56 s]
+  MERRA-2 2010 done  [86/138, 56 s]
+  ERA5 2011 done  [87/138, 57 s]
+  MERRA-2 2011 done  [88/138, 57 s]
+  JRA-3Q 2005 done  [89/138, 57 s]
+  ERA5 2012 done  [90/138, 57 s]
+  JRA-3Q 2004 done  [91/138, 57 s]
+  MERRA-2 2012 done  [92/138, 57 s]
+  JRA-3Q 2007 done  [93/138, 58 s]
+  ERA5 2013 done  [94/138, 58 s]
+  MERRA-2 2013 done  [95/138, 58 s]
+  JRA-3Q 2006 done  [96/138, 58 s]
+  ERA5 2014 done  [97/138, 58 s]
+  MERRA-2 2014 done  [98/138, 58 s]
+  ERA5 2015 done  [99/138, 58 s]
+  MERRA-2 2015 done  [100/138, 59 s]
+  JRA-3Q 2008 done  [101/138, 59 s]
+  ERA5 2016 done  [102/138, 59 s]
+  MERRA-2 2016 done  [103/138, 60 s]
+  JRA-3Q 2009 done  [104/138, 79 s]
+  ERA5 2017 done  [105/138, 79 s]
+  MERRA-2 2017 done  [106/138, 79 s]
+  JRA-3Q 2010 done  [107/138, 84 s]
+  ERA5 2018 done  [108/138, 84 s]
+  MERRA-2 2018 done  [109/138, 84 s]
+  JRA-3Q 2012 done  [110/138, 84 s]
+  JRA-3Q 2013 done  [111/138, 84 s]
+  MERRA-2 2019 done  [112/138, 84 s]
+  ERA5 2019 done  [113/138, 85 s]
+  JRA-3Q 2014 done  [114/138, 85 s]
+  MERRA-2 2020 done  [115/138, 85 s]
+  JRA-3Q 2011 done  [116/138, 85 s]
+  ERA5 2020 done  [117/138, 85 s]
+  MERRA-2 2021 done  [118/138, 85 s]
+  ERA5 2021 done  [119/138, 85 s]
+  ERA5 2022 done  [120/138, 86 s]
+  MERRA-2 2022 done  [121/138, 86 s]
+  JRA-3Q 2015 done  [122/138, 86 s]
+  ERA5 2023 done  [123/138, 87 s]
+  MERRA-2 2023 done  [124/138, 87 s]
+  JRA-3Q 2016 done  [125/138, 88 s]
+  ERA5 2024 done  [126/138, 88 s]
+  MERRA-2 2024 done  [127/138, 88 s]
+  JRA-3Q 2017 done  [128/138, 108 s]
+  ERA5 2025 done  [129/138, 108 s]
+  MERRA-2 2025 done  [130/138, 108 s]
+  JRA-3Q 2018 done  [131/138, 112 s]
+  JRA-3Q 2019 done  [132/138, 112 s]
+  JRA-3Q 2021 done  [133/138, 113 s]
+  JRA-3Q 2020 done  [134/138, 113 s]
+  JRA-3Q 2023 done  [135/138, 114 s]
+  JRA-3Q 2022 done  [136/138, 114 s]
+  JRA-3Q 2024 done  [137/138, 115 s]
+  JRA-3Q 2025 done  [138/138, 136 s]
+Common years 1980-2025 (n = 46); 0 month-year(s) missing in at least one dataset; complete boxes per level: [2501]
+
+EOFs of detrended October omega ...
+dataset  mode  n_years  variance_pct  north_separated  pattern_corr_with_trend  projection_trend_sd_per_decade  projection_trend_p
+   ERA5     1       46        11.779            False                    0.043                           0.021               0.852
+   ERA5     2       46         8.397            False                    0.150                           0.097               0.391
+   ERA5     3       46         6.763            False                    0.401                           0.376               0.002
+MERRA-2     1       46        12.058             True                    0.278                           0.226               0.142
+MERRA-2     2       46         7.888            False                    0.469                           0.475               0.000
+MERRA-2     3       46         7.037            False                    0.164                           0.166               0.229
+ JRA-3Q     1       46        11.789            False                    0.186                           0.105               0.356
+ JRA-3Q     2       46         9.042            False                    0.110                           0.103               0.391
+ JRA-3Q     3       46         7.061            False                    0.221                           0.194               0.092
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/eof_omega_oct_300hPa_maps.png
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/eof_omega_oct_300hPa_pcs.png
+
+PV on omega regressions ...
+Loading ERA5 ...
+Loading MERRA-2 ...
+  ERA5     1980-2025 (46 years), 205 x 305 grid, 0 missing month(s)
+  MERRA-2  1980-2025 (46 years), 103 x 123 grid, 0 missing month(s)
+  ERA5: median r = -0.00; 0% of boxes FDR-significant
+  MERRA-2: median r = -0.00; 0% of boxes FDR-significant
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/pv_omega_regression_oct_300hPa.png
+
+Done.
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Reading 138 dataset-months with 8 worker(s); cache: /soge-home/users/jesu4127/Paper_1/vertical_velocity/fixed/cache_pv_domain
+  MERRA-2 1981 done  [1/138, 1 s]
+  ERA5 1981 done  [2/138, 1 s]
+  ERA5 1982 done  [3/138, 1 s]
+  JRA-3Q 1980 done  [4/138, 1 s]
+  MERRA-2 1980 done  [5/138, 1 s]
+  JRA-3Q 1981 done  [6/138, 1 s]
+  ERA5 1980 done  [7/138, 1 s]
+  MERRA-2 1983 done  [8/138, 1 s]
+  MERRA-2 1982 done  [9/138, 1 s]
+  ERA5 1983 done  [10/138, 1 s]
+  JRA-3Q 1982 done  [11/138, 1 s]
+  JRA-3Q 1983 done  [12/138, 1 s]
+  ERA5 1984 done  [13/138, 1 s]
+  MERRA-2 1984 done  [14/138, 1 s]
+  JRA-3Q 1984 done  [15/138, 1 s]
+  ERA5 1985 done  [16/138, 1 s]
+  MERRA-2 1986 done  [17/138, 1 s]
+  MERRA-2 1985 done  [18/138, 1 s]
+  JRA-3Q 1985 done  [19/138, 1 s]
+  ERA5 1986 done  [20/138, 1 s]
+  ERA5 1987 done  [21/138, 1 s]
+  MERRA-2 1987 done  [22/138, 1 s]
+  JRA-3Q 1986 done  [23/138, 1 s]
+  JRA-3Q 1987 done  [24/138, 1 s]
+  ERA5 1988 done  [25/138, 1 s]
+  MERRA-2 1988 done  [26/138, 1 s]
+  JRA-3Q 1988 done  [27/138, 1 s]
+  ERA5 1989 done  [28/138, 1 s]
+  MERRA-2 1989 done  [29/138, 1 s]
+  MERRA-2 1990 done  [30/138, 1 s]
+  ERA5 1990 done  [31/138, 1 s]
+  JRA-3Q 1989 done  [32/138, 1 s]
+  JRA-3Q 1990 done  [33/138, 1 s]
+  MERRA-2 1991 done  [34/138, 1 s]
+  ERA5 1991 done  [35/138, 1 s]
+  JRA-3Q 1991 done  [36/138, 1 s]
+  ERA5 1992 done  [37/138, 1 s]
+  ERA5 1993 done  [38/138, 1 s]
+  MERRA-2 1992 done  [39/138, 1 s]
+  MERRA-2 1993 done  [40/138, 1 s]
+  JRA-3Q 1993 done  [41/138, 1 s]
+  MERRA-2 1994 done  [42/138, 1 s]
+  MERRA-2 1995 done  [43/138, 1 s]
+  JRA-3Q 1994 done  [44/138, 1 s]
+  ERA5 1995 done  [45/138, 1 s]
+  JRA-3Q 1995 done  [46/138, 1 s]
+  ERA5 1996 done  [47/138, 1 s]
+  JRA-3Q 1992 done  [48/138, 1 s]
+  ERA5 1994 done  [49/138, 1 s]
+  MERRA-2 1996 done  [50/138, 1 s]
+  MERRA-2 1997 done  [51/138, 1 s]
+  JRA-3Q 1996 done  [52/138, 1 s]
+  ERA5 1997 done  [53/138, 1 s]
+  MERRA-2 1998 done  [54/138, 1 s]
+  ERA5 1998 done  [55/138, 1 s]
+  JRA-3Q 1997 done  [56/138, 1 s]
+  JRA-3Q 1998 done  [57/138, 1 s]
+  MERRA-2 1999 done  [58/138, 1 s]
+  ERA5 1999 done  [59/138, 1 s]
+  JRA-3Q 1999 done  [60/138, 1 s]
+  ERA5 2000 done  [61/138, 1 s]
+  MERRA-2 2001 done  [62/138, 1 s]
+  JRA-3Q 2000 done  [63/138, 1 s]
+  MERRA-2 2000 done  [64/138, 1 s]
+  ERA5 2001 done  [65/138, 1 s]
+  MERRA-2 2002 done  [66/138, 1 s]
+  JRA-3Q 2001 done  [67/138, 1 s]
+  JRA-3Q 2002 done  [68/138, 1 s]
+  MERRA-2 2003 done  [69/138, 1 s]
+  JRA-3Q 2003 done  [70/138, 1 s]
+  ERA5 2003 done  [71/138, 1 s]
+  ERA5 2004 done  [72/138, 1 s]
+  ERA5 2002 done  [73/138, 1 s]
+  MERRA-2 2004 done  [74/138, 1 s]
+  JRA-3Q 2004 done  [75/138, 1 s]
+  MERRA-2 2005 done  [76/138, 1 s]
+  ERA5 2005 done  [77/138, 1 s]
+  JRA-3Q 2005 done  [78/138, 1 s]
+  ERA5 2006 done  [79/138, 1 s]
+  MERRA-2 2006 done  [80/138, 1 s]
+  JRA-3Q 2006 done  [81/138, 1 s]
+  ERA5 2007 done  [82/138, 1 s]
+  JRA-3Q 2007 done  [83/138, 1 s]
+  MERRA-2 2008 done  [84/138, 1 s]
+  JRA-3Q 2008 done  [85/138, 1 s]
+  MERRA-2 2007 done  [86/138, 1 s]
+  ERA5 2009 done  [87/138, 1 s]
+  MERRA-2 2009 done  [88/138, 1 s]
+  JRA-3Q 2009 done  [89/138, 1 s]
+  ERA5 2008 done  [90/138, 1 s]
+  ERA5 2010 done  [91/138, 1 s]
+  MERRA-2 2010 done  [92/138, 1 s]
+  JRA-3Q 2010 done  [93/138, 1 s]
+  MERRA-2 2011 done  [94/138, 1 s]
+  JRA-3Q 2011 done  [95/138, 1 s]
+  ERA5 2012 done  [96/138, 1 s]
+  ERA5 2011 done  [97/138, 1 s]
+  JRA-3Q 2012 done  [98/138, 1 s]
+  MERRA-2 2012 done  [99/138, 1 s]
+  ERA5 2013 done  [100/138, 1 s]
+  MERRA-2 2013 done  [101/138, 1 s]
+  JRA-3Q 2013 done  [102/138, 1 s]
+  ERA5 2014 done  [103/138, 1 s]
+  MERRA-2 2014 done  [104/138, 1 s]
+  JRA-3Q 2014 done  [105/138, 1 s]
+  ERA5 2015 done  [106/138, 1 s]
+  MERRA-2 2015 done  [107/138, 1 s]
+  JRA-3Q 2015 done  [108/138, 1 s]
+  ERA5 2016 done  [109/138, 1 s]
+  MERRA-2 2016 done  [110/138, 1 s]
+  JRA-3Q 2016 done  [111/138, 1 s]
+  MERRA-2 2017 done  [112/138, 1 s]
+  ERA5 2017 done  [113/138, 1 s]
+  JRA-3Q 2017 done  [114/138, 1 s]
+  MERRA-2 2018 done  [115/138, 1 s]
+  ERA5 2018 done  [116/138, 1 s]
+  JRA-3Q 2018 done  [117/138, 1 s]
+  ERA5 2019 done  [118/138, 1 s]
+  MERRA-2 2019 done  [119/138, 1 s]
+  JRA-3Q 2019 done  [120/138, 1 s]
+  JRA-3Q 2020 done  [121/138, 1 s]
+  ERA5 2021 done  [122/138, 1 s]
+  MERRA-2 2021 done  [123/138, 1 s]
+  JRA-3Q 2021 done  [124/138, 1 s]
+  MERRA-2 2020 done  [125/138, 1 s]
+  MERRA-2 2022 done  [126/138, 1 s]
+  ERA5 2022 done  [127/138, 1 s]
+  ERA5 2020 done  [128/138, 1 s]
+  JRA-3Q 2022 done  [129/138, 1 s]
+  ERA5 2023 done  [130/138, 1 s]
+  MERRA-2 2023 done  [131/138, 1 s]
+  JRA-3Q 2023 done  [132/138, 1 s]
+  MERRA-2 2024 done  [133/138, 1 s]
+  JRA-3Q 2024 done  [134/138, 1 s]
+  ERA5 2024 done  [135/138, 1 s]
+  ERA5 2025 done  [136/138, 1 s]
+  JRA-3Q 2025 done  [137/138, 1 s]
+  MERRA-2 2025 done  [138/138, 1 s]
+Common years 1980-2025 (n = 46); 0 month-year(s) missing in at least one dataset; complete boxes per level: [2501]
+
+EOFs of detrended October omega ...
+dataset  mode  n_years  variance_pct  north_separated  pattern_corr_with_trend  projection_trend_sd_per_decade  projection_trend_p
+   ERA5     1       46        11.779            False                    0.043                           0.021               0.852
+   ERA5     2       46         8.397            False                    0.150                           0.097               0.391
+   ERA5     3       46         6.763            False                    0.401                           0.376               0.002
+MERRA-2     1       46        12.058             True                    0.278                           0.226               0.142
+MERRA-2     2       46         7.888            False                    0.469                           0.475               0.000
+MERRA-2     3       46         7.037            False                    0.164                           0.166               0.229
+ JRA-3Q     1       46        11.789            False                    0.186                           0.105               0.356
+ JRA-3Q     2       46         9.042            False                    0.110                           0.103               0.391
+ JRA-3Q     3       46         7.061            False                    0.221                           0.194               0.092
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/eof_omega_oct_300hPa_maps.png
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/eof_omega_oct_300hPa_pcs.png
+
+PV on omega regressions ...
+Loading ERA5 ...
+Loading MERRA-2 ...
+  ERA5     1980-2025 (46 years), 205 x 305 grid, 0 missing month(s)
+  MERRA-2  1980-2025 (46 years), 103 x 123 grid, 0 missing month(s)
+  ERA5: median r = -0.00; 0% of boxes FDR-significant
+  MERRA-2: median r = -0.00; 0% of boxes FDR-significant
+  Saved /soge-home/users/jesu4127/Paper_1/pv_omega_eof/pv_omega_regression_oct_300hPa.png
+
+Done.
+
+============================================
+Finished: Mon 19 Oct 14:38:13 UTC 2026
+============================================

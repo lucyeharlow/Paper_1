@@ -1,0 +1,37 @@
+Started Mon 19 Oct 17:17:30 UTC 2026 on ouce-cn47
+
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+  Saved sw_oct_regression_diagnostics.png
+  Saved sw_oct_ar_order_diagnostics.png
+  Saved sw_oct_ar_order_maps.png
+
+ dataset         scope model           phi    AICc  delta_AICc  ljung_box_Q  ljung_box_lags  ljung_box_p  n_years
+    ERA5 S. Africa box AR(0)               122.549       0.000        4.612             8.0        0.798     42.0
+    ERA5 S. Africa box AR(1)        -0.128 124.112       1.563        3.878             8.0        0.794     42.0
+    ERA5 S. Africa box AR(2) -0.140;-0.086 126.174       3.625        3.660             8.0        0.723     42.0
+ MERRA-2 S. Africa box AR(0)               137.343       0.000        6.617             8.0        0.579     42.0
+ MERRA-2 S. Africa box AR(1)         0.143 138.756       1.413        5.136             8.0        0.643     42.0
+ MERRA-2 S. Africa box AR(2)  0.153;-0.060 140.956       3.614        4.761             8.0        0.575     42.0
+CLARA-A3 S. Africa box AR(0)               148.970       0.000        7.497             8.0        0.484     42.0
+CLARA-A3 S. Africa box AR(1)         0.031 151.150       2.180        7.405             8.0        0.388     42.0
+CLARA-A3 S. Africa box AR(2)  0.032;-0.056 153.369       4.399        6.830             8.0        0.337     42.0
+ SARAH-3 S. Africa box AR(0)               139.186       0.000        4.315             8.0        0.828     42.0
+ SARAH-3 S. Africa box AR(1)        -0.048 141.312       2.126        4.135             8.0        0.764     42.0
+ SARAH-3 S. Africa box AR(2) -0.050;-0.041 143.590       4.404        4.328             8.0        0.632     42.0
+
+ dataset                              scope  n_boxes  pct_area_best_AR0  pct_area_best_AR1  pct_area_best_AR2  pct_area_LB_rejects_OLS_residuals  pct_area_LB_rejects_AR1_innovations  pct_area_SW_rejects_normality
+    ERA5 grid points (% of map-domain area)  14641.0             74.720             13.496             11.784                              8.535                                5.488                         18.861
+ MERRA-2 grid points (% of map-domain area)  14641.0             71.521             17.616             10.863                             10.914                                3.808                         22.097
+CLARA-A3 grid points (% of map-domain area)  14641.0             80.305             13.262              6.433                              7.097                                5.452                         35.439
+ SARAH-3 grid points (% of map-domain area)  14641.0             78.805             13.479              7.716                              7.054                                5.420                         18.376
+Finished Mon 19 Oct 17:18:59 UTC 2026

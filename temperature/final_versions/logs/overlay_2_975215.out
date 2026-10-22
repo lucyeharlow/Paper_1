@@ -4,3 +4,157 @@ Job ID: 975215
 Node: ouce-cn47
 Started: Wed 14 Oct 17:20:39 UTC 2026
 ============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA Global Temp v6.1.0   1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends with AR(1)-corrected significance...
+
+DIAGNOSTICS PER MONTH (degC/decade; map significance: BH-FDR at 0.1)
+
+JANUARY
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.0890  +0.1024    46  -0.04   46.0        29%   +0.09 °C/dec, p = 0.126, n_eff = 46/46
+  MERRA-2                     1,620  +0.0378  +0.0337    46  -0.02   46.0        17%   +0.04 °C/dec, p = 0.577, n_eff = 46/46
+  JRA-3Q                      3,525  +0.0596  +0.0748    46  -0.00   46.0        17%   +0.06 °C/dec, p = 0.286, n_eff = 46/46
+  CHIRTS                    199,132  +0.0390  +0.0479    34  +0.00   33.8         1%   +0.04 °C/dec, p = 0.656, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1001  +0.0893    46  -0.01   46.0        52%   +0.10 °C/dec, p = 0.072, n_eff = 46/46
+  CRUTEM5                   no complete cells
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_01_Jan_ar1.png
+
+FEBRUARY
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.1799  +0.1816    46  -0.04   46.0        47%   +0.18 °C/dec, p = 0.017, n_eff = 46/46
+  MERRA-2                     1,620  +0.1519  +0.1276    46  -0.05   46.0        21%   +0.15 °C/dec, p = 0.099, n_eff = 46/46
+  JRA-3Q                      3,525  +0.1586  +0.1612    46  -0.02   46.0        35%   +0.16 °C/dec, p = 0.027, n_eff = 46/46
+  CHIRTS                    199,132  +0.1861  +0.1822    34  -0.07   34.0         8%   +0.19 °C/dec, p = 0.083, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1284  +0.1365    46  -0.08   46.0        52%   +0.13 °C/dec, p = 0.052, n_eff = 46/46
+  CRUTEM5                         1  +0.1957  +0.1957    46  -0.03   46.0       100%   +0.20 °C/dec, p = 0.010, n_eff = 46/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_02_Feb_ar1.png
+
+MARCH
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.1418  +0.1385    46  -0.04   46.0        24%   +0.14 °C/dec, p = 0.051, n_eff = 46/46
+  MERRA-2                     1,620  +0.1203  +0.0993    46  -0.04   46.0         8%   +0.12 °C/dec, p = 0.186, n_eff = 46/46
+  JRA-3Q                      3,525  +0.1112  +0.1044    46  -0.04   46.0         0%   +0.11 °C/dec, p = 0.101, n_eff = 46/46
+  CHIRTS                    199,132  +0.1167  +0.1008    34  -0.12   34.0         0%   +0.12 °C/dec, p = 0.182, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1301  +0.1228    46  -0.08   46.0        47%   +0.13 °C/dec, p = 0.034, n_eff = 46/46
+  CRUTEM5                   no complete cells
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_03_Mar_ar1.png
+
+APRIL
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.0991  +0.0859    46  -0.07   46.0        11%   +0.10 °C/dec, p = 0.160, n_eff = 46/46
+  MERRA-2                     1,620  +0.1053  +0.0814    46  -0.08   46.0         2%   +0.11 °C/dec, p = 0.233, n_eff = 46/46
+  JRA-3Q                      3,525  +0.0926  +0.0890    46  -0.05   46.0         6%   +0.09 °C/dec, p = 0.174, n_eff = 46/46
+  CHIRTS                    199,132  -0.0484  -0.0793    34  -0.07   34.0         0%   -0.05 °C/dec, p = 0.630, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1214  +0.0871    46  -0.05   46.0        43%   +0.12 °C/dec, p = 0.043, n_eff = 46/46
+  CRUTEM5                   no complete cells
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_04_Apr_ar1.png
+
+MAY
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.1511  +0.1360    46  +0.03   43.4         9%   +0.15 °C/dec, p = 0.029, n_eff = 45/46
+  MERRA-2                     1,620  +0.1732  +0.1443    46  +0.01   45.4         5%   +0.17 °C/dec, p = 0.029, n_eff = 46/46
+  JRA-3Q                      3,525  +0.1683  +0.1602    46  +0.04   42.7         1%   +0.17 °C/dec, p = 0.014, n_eff = 45/46
+  CHIRTS                    199,132  +0.0248  -0.0040    34  -0.07   34.0         0%   +0.02 °C/dec, p = 0.789, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1970  +0.1960    46  -0.02   46.0        67%   +0.20 °C/dec, p = 0.001, n_eff = 46/46
+  CRUTEM5                         1  +0.1524  +0.1524    46  +0.14   35.0         0%   +0.15 °C/dec, p = 0.173, n_eff = 35/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_05_May_ar1.png
+
+JUNE
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.2184  +0.2248    46  +0.06   40.5        50%   +0.22 °C/dec, p < 0.001, n_eff = 40/46
+  MERRA-2                     1,620  +0.2379  +0.1889    46  +0.04   42.0        30%   +0.24 °C/dec, p = 0.002, n_eff = 38/46
+  JRA-3Q                      3,525  +0.2459  +0.2584    46  +0.06   40.5        71%   +0.25 °C/dec, p < 0.001, n_eff = 40/46
+  CHIRTS                    199,132  +0.1603  +0.1555    34  +0.06   30.1         7%   +0.16 °C/dec, p = 0.092, n_eff = 24/34
+  NOAA Global Temp v6.1.0        21  +0.2716  +0.2752    46  +0.02   43.9        90%   +0.27 °C/dec, p < 0.001, n_eff = 46/46
+  CRUTEM5                         4  +0.3598  +0.3348    46  +0.18   32.4       100%   +0.36 °C/dec, p < 0.001, n_eff = 26/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_06_Jun_ar1.png
+
+JULY
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.1715  +0.1592    46  +0.00   45.6        28%   +0.17 °C/dec, p = 0.005, n_eff = 46/46
+  MERRA-2                     1,620  +0.1635  +0.1355    46  +0.03   43.2        16%   +0.16 °C/dec, p = 0.015, n_eff = 46/46
+  JRA-3Q                      3,525  +0.1904  +0.1978    46  -0.05   46.0        57%   +0.19 °C/dec, p = 0.002, n_eff = 46/46
+  CHIRTS                    199,132  +0.1416  +0.1551    34  -0.06   34.0         8%   +0.14 °C/dec, p = 0.126, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1684  +0.1536    46  +0.01   44.9        52%   +0.17 °C/dec, p = 0.002, n_eff = 46/46
+  CRUTEM5                         3  +0.2782  +0.2884    46  -0.00   46.0       100%   +0.28 °C/dec, p = 0.001, n_eff = 46/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_07_Jul_ar1.png
+
+AUGUST
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.2431  +0.2453    46  +0.08   39.2        56%   +0.24 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     1,620  +0.1665  +0.2036    46  +0.06   41.0        23%   +0.17 °C/dec, p = 0.011, n_eff = 46/46
+  JRA-3Q                      3,525  +0.2435  +0.2877    46  +0.04   42.9        76%   +0.24 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,132  +0.1886  +0.2007    34  +0.14   25.4         6%   +0.19 °C/dec, p = 0.066, n_eff = 27/34
+  NOAA Global Temp v6.1.0        21  +0.2666  +0.2917    46  +0.08   39.0        86%   +0.27 °C/dec, p < 0.001, n_eff = 42/46
+  CRUTEM5                         6  +0.2353  +0.2349    46  -0.10   46.0        52%   +0.24 °C/dec, p = 0.005, n_eff = 46/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_08_Aug_ar1.png
+
+SEPTEMBER
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.3009  +0.3050    46  +0.01   45.3        83%   +0.30 °C/dec, p < 0.001, n_eff = 37/46
+  MERRA-2                     1,620  +0.1398  +0.1467    46  +0.03   43.5        16%   +0.14 °C/dec, p = 0.013, n_eff = 43/46
+  JRA-3Q                      3,525  +0.2789  +0.3104    46  -0.00   46.0        81%   +0.28 °C/dec, p < 0.001, n_eff = 43/46
+  CHIRTS                    199,132  +0.0923  +0.1237    34  +0.01   33.6        11%   +0.09 °C/dec, p = 0.207, n_eff = 33/34
+  NOAA Global Temp v6.1.0        21  +0.2801  +0.2972    46  -0.02   46.0        91%   +0.28 °C/dec, p < 0.001, n_eff = 38/46
+  CRUTEM5                         5  +0.2558  +0.2103    46  +0.10   37.5        80%   +0.26 °C/dec, p = 0.007, n_eff = 30/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_09_Sep_ar1.png
+
+OCTOBER
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.4523  +0.4577    46  -0.10   46.0        98%   +0.45 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     1,620  +0.3151  +0.3155    46  -0.11   46.0        86%   +0.32 °C/dec, p < 0.001, n_eff = 46/46
+  JRA-3Q                      3,525  +0.3826  +0.3980    46  -0.08   46.0        91%   +0.38 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,132  +0.3227  +0.3302    34  -0.08   34.0        65%   +0.32 °C/dec, p < 0.001, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.3322  +0.3533    46  -0.11   46.0       100%   +0.33 °C/dec, p < 0.001, n_eff = 46/46
+  CRUTEM5                         4  +0.3524  +0.3576    46  -0.00   43.0       100%   +0.35 °C/dec, p < 0.001, n_eff = 46/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_10_Oct_ar1.png
+
+NOVEMBER
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.2872  +0.2732    46  -0.04   46.0        73%   +0.29 °C/dec, p < 0.001, n_eff = 46/46
+  MERRA-2                     1,620  +0.2230  +0.2222    46  -0.03   46.0        20%   +0.22 °C/dec, p = 0.002, n_eff = 46/46
+  JRA-3Q                      3,525  +0.2305  +0.2350    46  -0.03   46.0        49%   +0.23 °C/dec, p < 0.001, n_eff = 46/46
+  CHIRTS                    199,132  +0.1897  +0.2025    34  -0.09   34.0        30%   +0.19 °C/dec, p = 0.011, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.2131  +0.2408    46  -0.09   46.0        86%   +0.21 °C/dec, p < 0.001, n_eff = 46/46
+  CRUTEM5                         5  +0.2166  +0.2107    46  +0.00   45.8        59%   +0.22 °C/dec, p = 0.010, n_eff = 46/46
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_11_Nov_ar1.png
+
+DECEMBER
+  dataset                     cells     mean   median     n     r1  n_eff  %area sig   regional trend / p / n_eff
+  ERA5                        8,030  +0.2155  +0.2109    46  -0.06   46.0        49%   +0.22 °C/dec, p = 0.002, n_eff = 46/46
+  MERRA-2                     1,620  +0.1844  +0.1778    46  -0.04   46.0        20%   +0.18 °C/dec, p = 0.027, n_eff = 39/46
+  JRA-3Q                      3,525  +0.1755  +0.1938    46  -0.05   46.0        48%   +0.18 °C/dec, p = 0.006, n_eff = 46/46
+  CHIRTS                    199,132  +0.2460  +0.2441    34  -0.09   34.0        38%   +0.25 °C/dec, p = 0.003, n_eff = 34/34
+  NOAA Global Temp v6.1.0        21  +0.1756  +0.2082    46  -0.14   46.0        57%   +0.18 °C/dec, p = 0.002, n_eff = 46/46
+  CRUTEM5                   no complete cells
+  Saved figure: southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries_12_Dec_ar1.png
+
+Saved summary CSV and 12 figures to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/plots
+
+Python version:
+Python 3.12.3
+
+Starting analysis...
+============================================

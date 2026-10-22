@@ -1,0 +1,32 @@
+Month 11 on ouce-cn47, started Mon 19 Oct 17:16:18 UTC 2026
+======================================================================
+SW trends, every month: ERA5 | MERRA-2 | CLARA-A3 | SARAH-3, 1983-2024
+======================================================================
+
+===== SW down, November =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+  median n_eff 42 of n 42; 5% of points FDR-significant
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+  median n_eff 42 of n 42; 13% of points FDR-significant
+--- CLARA-A3 ---
+  no CLARA-A3 files for this month
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+  median n_eff 41 of n 42; 1% of points FDR-significant
+  Saved: /soge-home/users/jesu4127/Paper_1/radiation/sw_down/SW_down_trends_11_Nov.png
+
+===== SW absorbed, November =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+  median n_eff 42 of n 42; 4% of points FDR-significant
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+  median n_eff 42 of n 42; 15% of points FDR-significant
+--- CLARA-A3 ---
+  no CLARA-A3 files for this month
+  Saved: /soge-home/users/jesu4127/Paper_1/radiation/sw_absorbed/SW_absorbed_trends_11_Nov.png
+
+Done.
+Finished Mon 19 Oct 17:18:47 UTC 2026

@@ -1,0 +1,9 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+Traceback (most recent call last):
+  File "/hn01-home/jesu4127/Paper_1/radiation/shortwave_assumptions_check.py", line 53, in <module>
+    spec.loader.exec_module(s)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "<frozen importlib._bootstrap_external>", line 1019, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1156, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1214, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/hn01-home/jesu4127/Paper_1/radiation/sw_trends_monthly.py'

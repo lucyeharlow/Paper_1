@@ -1,0 +1,26 @@
+===== ERA5 October =====
+  ERA5 w: 47 years of Oct (1979-2025)
+  ERA5 cc: 47 years of Oct (1979-2025)
+  surface pressure: MERRA-2 PS, mean of 46 years
+Common years 1979-2025 (n = 47); 181 latitudes; 27 CF levels
+  10°E–15°E: 44% of level-latitude cells significant
+  15°E–20°E: 61% of level-latitude cells significant
+  20°E–25°E: 61% of level-latitude cells significant
+  25°E–30°E: 67% of level-latitude cells significant
+  30°E–35°E: 77% of level-latitude cells significant
+  35°E–40°E: 51% of level-latitude cells significant
+Saved: /soge-home/users/jesu4127/Paper_1/circulation/omega300hPa_cf_crosssections_10to40E_ERA5_10_Oct.png
+===== MERRA-2 October =====
+  cloud fraction: using the CREATE-IP cl files in /soge-home/data/analysis/merra2/0.625x0.5/monthly/nc
+  MERRA-2 OMEGA: 46 years of Oct (1980-2025)
+  MERRA-2 cl (CREATE-IP, tavgM_3d_cld_Np): 38 years of Oct (1980-2017)
+  surface pressure: MERRA-2 PS, mean of 46 years
+Common years 1980-2017 (n = 38); 91 latitudes; 25 CF levels
+  10°E–15°E: 34% of level-latitude cells significant
+  15°E–20°E: 56% of level-latitude cells significant
+  20°E–25°E: 56% of level-latitude cells significant
+  25°E–30°E: 63% of level-latitude cells significant
+  30°E–35°E: 50% of level-latitude cells significant
+  35°E–40°E: 33% of level-latitude cells significant
+Saved: /soge-home/users/jesu4127/Paper_1/circulation/omega300hPa_cf_crosssections_10to40E_MERRA2_10_Oct.png
+Done.

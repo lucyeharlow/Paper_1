@@ -1,0 +1,134 @@
+Started Thu 22 Oct 11:20:47 UTC 2026 on ouce-cn31
+
+===== January =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== February =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== March =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== April =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== May =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== June =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== July =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 38 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]
+  CLARA-A3: 4 years (2021-2024)
+  [WARN] CLARA-A3 Jul: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== August =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== September =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== October =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== November =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+
+===== December =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+  series ERA5: 1983–2024, mean 282.0 W m-2, trend +4.12 W m-2/dec, p 0.000
+  series MERRA-2: 1983–2024, mean 295.4 W m-2, trend -0.14 W m-2/dec, p 0.885
+  series CLARA-A3: 1983–2024, mean 276.2 W m-2, trend +8.40 W m-2/dec, p 0.000
+  series SARAH-3: 1983–2024, mean 276.6 W m-2, trend +4.10 W m-2/dec, p 0.000
+  series CERES-EBAF: 2000–2024, mean 271.9 W m-2, trend +3.25 W m-2/dec, p 0.113
+Saved: /soge-home/users/jesu4127/Paper_1/radiation/revised/plots/sw_down/SW_down_SouthernAfrica_October_series.csv
+
+October periods: ERA5 1983–2024; MERRA-2 1983–2024; CLARA-A3 1983–2024; SARAH-3 1983–2024
+Saved: /soge-home/users/jesu4127/Paper_1/radiation/revised/plots/sw_down/SW_down_SouthernAfrica_monthly_trends_summary.csv
+Saved: /soge-home/users/jesu4127/Paper_1/radiation/revised/plots/sw_down/SW_down_SouthernAfrica_boxplots_Africa_Oct_maps.png
+Finished Thu 22 Oct 11:36:18 UTC 2026

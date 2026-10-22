@@ -1,0 +1,15 @@
+===== ERA5 September =====
+  ERA5 w: 47 years of Sep (1979-2025)
+  ERA5 cc: 47 years of Sep (1979-2025)
+  surface pressure: MERRA-2 PS, mean of 46 years
+Common years 1979-2025 (n = 47); 181 latitudes; 27 CF levels
+  10°E–15°E: 22% of level-latitude cells significant
+  15°E–20°E: 55% of level-latitude cells significant
+  20°E–25°E: 50% of level-latitude cells significant
+  25°E–30°E: 51% of level-latitude cells significant
+  30°E–35°E: 40% of level-latitude cells significant
+  35°E–40°E: 17% of level-latitude cells significant
+Saved: /soge-home/users/jesu4127/Paper_1/circulation/monthly/omega300hPa_cf_crosssections_10to40E_ERA5_09_Sep.png
+===== MERRA-2 September =====
+[ERROR] merra2 Sep: RuntimeError: no MERRA2_*.tavgM_3d_rad_Np.YYYY10.nc4 files (variable CLOUD) in /soge-home/users/jesu4127/scratch/merra_2 or /soge-home/users/jesu4127/scratch/merra_2/cloud: run download_merra2_cloud.sh
+Done. Failed: merra2 Sep

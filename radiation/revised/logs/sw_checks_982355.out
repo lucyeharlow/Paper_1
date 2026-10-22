@@ -1,0 +1,160 @@
+Started Wed 21 Oct 16:37:14 UTC 2026 on ouce-cn42
+
+===== January =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Jan: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== February =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Feb: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== March =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Mar: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== April =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Apr: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== May =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 May: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== June =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Jun: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== July =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Jul: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== August =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Aug: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== September =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Sep: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== October =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  CLARA-A3: 42 years (1983-2024)
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== November =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Nov: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+===== December =====
+--- ERA5 ---
+  ERA5: 42 years (1983-2024)
+--- MERRA-2 ---
+  MERRA-2: 42 years (1983-2024)
+--- CLARA-A3 ---
+  [WARN] no CLARA-A3 file for 42 year(s): [1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  [ERROR] no CLARA-A3 data loaded
+  [WARN] CLARA-A3 Dec: not enough data, left out
+--- SARAH-3 ---
+  SARAH-3: 42 years (1983-2024)
+--- CERES-EBAF ---
+
+October periods: ERA5 1983–2024; MERRA-2 1983–2024; CLARA-A3 1983–2024; SARAH-3 1983–2024; CERES-EBAF 2000–2024
+Saved: /soge-home/users/jesu4127/Paper_1/radiation/revised/plots/sw_down/SW_down_SouthernAfrica_monthly_trends_summary.csv
+Saved: /soge-home/users/jesu4127/Paper_1/radiation/revised/plots/sw_down/SW_down_SouthernAfrica_boxplots_Africa_Oct_maps.png
+Finished Wed 21 Oct 16:51:57 UTC 2026

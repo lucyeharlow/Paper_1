@@ -1,0 +1,28 @@
+============================================
+Humidity calculation job
+Job ID: 975297
+Node: ouce-cn50
+Started: Fri 16 Oct 10:52:55 UTC 2026
+============================================
+Loaded 46 years (1980-2025), levels [200, 300, 500, 700, 850] hPa, 201 x 301 grid, 12 months
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_200hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_300hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_500hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_700hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_850hPa.png
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Loaded 46 years (1980-2025), levels [200, 300, 500, 700, 850] hPa, 201 x 301 grid, 12 months
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_200hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_300hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_500hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_700hPa.png
+Saved /soge-home/users/jesu4127/Paper_1/exploration/humidity/plots/era5_rh_monthly_evolution_850hPa.png
+
+============================================
+Finished: Fri 16 Oct 10:59:05 UTC 2026
+============================================

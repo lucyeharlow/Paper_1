@@ -4,3 +4,45 @@ Job ID: 975214
 Node: ouce-cn47
 Started: Wed 14 Oct 17:20:37 UTC 2026
 ============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+
+Anomalies...
+  CHIRTS: climatology uses 1991-2016
+
+YEAR RANGES
+  ERA5                      1980-2025 (46 years)
+  MERRA-2                   1980-2025 (46 years)
+  JRA-3Q                    1980-2025 (46 years)
+  CHIRTS                    1983-2016 (34 years)
+  NOAA Global Temp v6.1.0   1980-2025 (46 years)
+  CRUTEM5                   1980-2025 (46 years)
+
+Trends...
+
+OCTOBER DIAGNOSTICS (degC/decade)
+  ERA5                      complete cells=  8,030  min +0.0217  mean +0.4523  median +0.4577  max +0.8503
+  MERRA-2                   complete cells=  1,620  min -0.1160  mean +0.3151  median +0.3155  max +0.7005
+  JRA-3Q                    complete cells=  3,525  min -0.1283  mean +0.3826  median +0.3980  max +0.8797
+  CHIRTS                    complete cells=199,132  min -0.3076  mean +0.3227  median +0.3302  max +0.9085
+  NOAA Global Temp v6.1.0   complete cells=     21  min +0.1156  mean +0.3322  median +0.3533  max +0.4196
+  CRUTEM5                   complete cells=      4  min +0.2659  mean +0.3524  median +0.3576  max +0.4250
+Saved summary and .npy files to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/plots
+
+Creating figure...
+Saved figure: /soge-home/users/jesu4127/Paper_1/temperature/final_versions/plots/southern_africa_temperature_trends_jra_3q_era5_merra2_chirts_noaa_one_timeseries.png
+
+Python version:
+Python 3.12.3
+
+Starting analysis...
+============================================

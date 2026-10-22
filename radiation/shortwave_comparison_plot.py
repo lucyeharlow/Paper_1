@@ -1,11 +1,42 @@
 """
-October SW↓ decadal trend comparison:
-ERA5 (1983–2024) | MERRA-2 (1983–2024) | CLARA-A3 (1983–2024) | SARAH-3 (1983–2024)
-"""
+Monthly SW decadal trend comparison, every calendar month:
+ERA5 | MERRA-2 | CLARA-A3 | SARAH-3, common period 1983-2024.
+Two quantities: downwelling SW (SW down) and absorbed SW (surface net SW = down - up).
 
+DATA (current server)
+  ERA5      scratch/era5/global_surface_solar_radiation_downwards.nc   ssrd  (SW down)
+            scratch/era5/global_surface_net_solar_radiation.nc          ssr   (net = down - up)
+            monthly means of daily accumulations (J m-2 per day) -> W m-2 by dividing by 86400 s
+  MERRA-2   scratch/merra_2/MERRA2_<ver>.tavgM_2d_rad_Nx.YYYYMM.nc4: SWGDN (down), SWGNT
+            (net); where two versions exist for a month the highest is used
+  CLARA-A3  data/clara_a3/*SISmmYYYYMM01*.nc (SIS, down), *SNSmmYYYYMM01*.nc (SNS, net):
+            thematic CDR (TCDR, ...AVPOS01GL) to 2020, interim CDR (ICDR, ...AVPOSI1GL) from
+            2021; the TCDR file is used where both exist
+  SARAH-3   data/sarah_3/**/*SISmmYYYYMM01*.nc, SIS (down) only; Meteosat disc (about +-65 deg).
+            SARAH-3 has no surface albedo / upward SW, so it has no absorbed-SW panel.
+  Missing or unreadable months are reported and left out; a panel with no data says so.
+
+METHOD
+  All datasets bilinearly interpolated to the MERRA-2 0.5 x 0.625 deg grid.
+  OLS trend per grid point (W m-2 per decade), vectorised. Significance as in the temperature
+  and vertical velocity scripts: lag-1 autocorrelation r1 of the residuals gives
+  n_eff = n (1 - r1) / (1 + r1), capped at n (Santer et al. 2000); two-sided t-test with
+  n_eff - 2 degrees of freedom; Benjamini-Hochberg FDR q < FDR_ALPHA per map (Wilks 2016).
+  A grid point needs at least MIN_YEARS years.
+
+FIGURES  one per month and quantity (24):
+  <OUT_DIR>/sw_down/SW_down_trends_<MM>_<Mon>.png
+  <OUT_DIR>/sw_absorbed/SW_absorbed_trends_<MM>_<Mon>.png
+  All trends are plotted; significance markers (white centre, black edge, so they show on any
+  colour) mark FDR-significant points, thinned so they stay readable on the global maps.
+  Oceans and lakes are masked white.
+"""
 from __future__ import annotations
-import glob, os, warnings
-from pathlib import Path
+import calendar
+import glob
+import os
+import re
+import warnings
 import numpy as np
 import xarray as xr
 import matplotlib
@@ -15,377 +46,291 @@ import matplotlib.ticker as mplticker
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 from cartopy.mpl.gridliner import LongitudeFormatter, LatitudeFormatter
-from scipy.stats import t as tdist
-from statsmodels.stats.multitest import multipletests
+from scipy import stats
 warnings.filterwarnings("ignore")
 
-ERA5_RAW   = "/ec/res4/scratch/gbr3310/fixed_era5_flux_analysis/1979_2025/global_surface_solar_radiation_downwards.nc"
-MERRA2_DIR = "/ec/res4/hpcperm/gbr3310/merra2"
-CLARA_DIR  = "/ec/res4/scratch/gbr3310/fixed_era5_flux_analysis/copernicus_eumetsat"
-SARAH_DIR  = "/ec/res4/scratch/gbr3310/fixed_era5_flux_analysis/saraha3/ORD66840"
-OUT_DIR    = "/ec/res4/scratch/gbr3310/fixed_era5_flux_analysis/1979_2025_merra2grid/comparison_plots"
-os.makedirs(OUT_DIR, exist_ok=True)
+# ---------------------------------------------------------------- paths
+ERA5_DOWN = "/soge-home/users/jesu4127/scratch/era5/global_surface_solar_radiation_downwards.nc"
+ERA5_NET = "/soge-home/users/jesu4127/scratch/era5/global_surface_net_solar_radiation.nc"
+MERRA2_DIR = "/soge-home/users/jesu4127/scratch/merra_2"
+CLARA_DIR = "/soge-home/users/jesu4127/data/clara_a3"
+SARAH_DIR = "/soge-home/users/jesu4127/data/sarah_3"
+OUT_DIR = "/soge-home/users/jesu4127/Paper_1/radiation"
 
-MONTH       = 10
-FDR_ALPHA   = 0.10
-DECADE      = 10
-CLIM        = 8.0
-LEVELS      = np.linspace(-CLIM, CLIM, 21)
-
-ERA5_START,   ERA5_END   = 1983, 2024
-MERRA2_START, MERRA2_END = 1983, 2024
-CLARA_START,  CLARA_END  = 1983, 2024
-SARAH_START,  SARAH_END  = 1983, 2024
-
-M2_LAT = np.arange(-90.0,  90.01, 0.5)
+# ---------------------------------------------------------------- settings
+MONTHS = range(1, 13)
+MONTH = 10                        # default month for the assumption-check script
+QUANTITIES = ["down", "absorbed"]
+FDR_ALPHA = 0.10
+DECADE = 10
+CLIM = {"down": 8.0, "absorbed": 8.0}
+START, END = 1983, 2024
+MIN_YEARS = 8
+DOT_EVERY = 4                     # marker every 4th grid point (about 2 x 2.5 deg)
+DOT_SIZE = 5                      # marker area (points^2)
+SECS_PER_DAY = 86400.0
+M2_LAT = np.arange(-90.0, 90.01, 0.5)
 M2_LON = np.arange(-180.0, 180.0, 0.625)
-SECS_PER_MONTH = 86400.0
+NAMES = ["ERA5", "MERRA-2", "CLARA-A3", "SARAH-3"]
+LABEL = {"down": "downwelling", "absorbed": "absorbed (surface net = down − up)"}
+SOURCE = {   # dataset -> quantity -> variable name (None: not available)
+    "ERA5": {"down": "ssrd", "absorbed": "ssr"},
+    "MERRA-2": {"down": "SWGDN", "absorbed": "SWGNT"},
+    "CLARA-A3": {"down": "SIS", "absorbed": "SNS"},
+    "SARAH-3": {"down": "SIS", "absorbed": None},
+}
+NOT_AVAILABLE = {("SARAH-3", "absorbed"): "not available\n(SARAH-3 has no surface albedo / upward SW)"}
 
-def log(msg): print(msg, flush=True)
 
-def get_latlon_names(da):
-    for ln, lo in (("lat", "lon"), ("latitude", "longitude")):
-        if ln in da.coords: return ln, lo
-    raise KeyError(f"No lat/lon coords in {list(da.coords)}")
+def log(msg):
+    print(msg, flush=True)
 
-def fdr_mask(pval_array):
-    p = np.asarray(pval_array).flatten()
-    finite = np.isfinite(p)
-    reject = np.zeros(p.shape, dtype=bool)
-    if finite.sum() > 0:
-        rej, *_ = multipletests(p[finite], alpha=FDR_ALPHA, method="fdr_bh")
-        reject[finite] = rej
-    return reject.reshape(pval_array.shape)
 
-def add_map_features(ax):
-    ax.add_feature(cfeature.OCEAN.with_scale("110m"), zorder=1, facecolor="white")
-    ax.add_feature(cfeature.LAKES.with_scale("110m"), zorder=1, facecolor="white")
-    ax.coastlines(resolution="110m", linewidth=0.4)
-    ax.set_global()
+# ---------------------------------------------------------------- loading
+def to_m2_grid(da):
+    """Rename to lat/lon, put lon on -180..180, sort, interpolate onto the MERRA-2 grid."""
+    da = da.rename({k: v for k, v in (("latitude", "lat"), ("longitude", "lon")) if k in da.dims})
+    if float(da.lon.max()) > 180.5:
+        da = da.assign_coords(lon=(da.lon + 180) % 360 - 180)
+    da = da.sortby("lat").sortby("lon")
+    return da.interp(lat=M2_LAT, lon=M2_LON, method="linear")
 
-def add_gridlines(ax, left_labels=False, bottom_labels=False):
-    gl = ax.gridlines(draw_labels=True, linewidth=0.3,
-                      color="black", alpha=0.45, linestyle=":")
-    gl.top_labels    = False
-    gl.right_labels  = False
-    gl.left_labels   = left_labels
-    gl.bottom_labels = bottom_labels
-    gl.xlocator      = mplticker.FixedLocator([-120, -60, 0, 60, 120])
-    gl.ylocator      = mplticker.FixedLocator([-60, -30, 0, 30, 60])
-    gl.xformatter    = LongitudeFormatter()
-    gl.yformatter    = LatitudeFormatter()
-    gl.xlabel_style  = {"size": 9, "color": "black",
-                        "rotation": 45, "fontfamily": "sans-serif"}
-    gl.ylabel_style  = {"size": 9, "color": "black",
-                        "fontfamily": "sans-serif"}
 
-def plot_panel(ax, slope_da, pval_da, col_idx, row_idx,
-               nrows, ncols, label, subtitle=None):
-    ln, lo = get_latlon_names(slope_da)
-    lons = slope_da[lo].values
-    lats = slope_da[ln].values
-    sv   = slope_da.values * DECADE
-    pv   = pval_da.values
-    sig  = fdr_mask(pv)
-    ax.contourf(lons, lats, sv, levels=LEVELS, colors="#CCCCCC",
-                antialiased=False, transform=ccrs.PlateCarree())
-    cf = ax.contourf(lons, lats, np.where(sig, sv, np.nan),
-                     levels=LEVELS, cmap="RdBu_r", extend="both",
-                     antialiased=False, transform=ccrs.PlateCarree())
-    add_map_features(ax)
-    add_gridlines(ax, left_labels=(col_idx == 0),
-                  bottom_labels=(row_idx == nrows - 1))
-    ax.text(0.02, 0.97, label, transform=ax.transAxes,
-            fontsize=10, fontweight="bold", va="top", ha="left",
-            bbox=dict(facecolor="white", edgecolor="none",
-                      alpha=0.7, boxstyle="round,pad=0.15"))
-    if subtitle:
-        ax.set_title(subtitle, fontsize=12, fontstyle="normal",
-                     pad=4, color="#333333")
-    return cf
+def load_era5(month=MONTH, quantity="down"):
+    """(year, lat, lon) ERA5 SW in W m-2 on the MERRA-2 grid, for one calendar month."""
+    path = ERA5_DOWN if quantity == "down" else ERA5_NET
+    if not os.path.exists(path):
+        log(f"  [ERROR] not found: {path}")
+        return None
+    with xr.open_dataset(path) as ds:
+        da = ds[SOURCE["ERA5"][quantity]]
+        t = "valid_time" if "valid_time" in da.dims else "time"
+        sel = (da[t].dt.month == month) & (da[t].dt.year >= START) & (da[t].dt.year <= END)
+        da = da.isel({t: np.flatnonzero(sel.values)}).load()
+    years = da[t].dt.year.values
+    da = (da / SECS_PER_DAY).assign_coords({t: years}).rename({t: "year"})
+    da = da.drop_vars(["number", "expver"], errors="ignore")
+    log(f"  ERA5: {len(years)} years ({years.min()}-{years.max()})")
+    return to_m2_grid(da)
 
-def lag1_autocorr(ts):
-    ts = np.asarray(ts, dtype=float)
-    ok = np.isfinite(ts)
-    if ok.sum() < 3: return np.nan
-    t0, t1 = ts[:-1], ts[1:]
-    m = np.isfinite(t0) & np.isfinite(t1)
-    return float(np.corrcoef(t1[m], t0[m])[0, 1]) if m.sum() >= 3 else np.nan
 
-def ols_pixel(ts, years):
-    y = np.asarray(ts, dtype=float); x = np.asarray(years, dtype=float)
-    ok = np.isfinite(y) & np.isfinite(x); n = ok.sum()
-    if n < 8: return np.nan, np.nan
-    y, x = y[ok], x[ok]; x = x - x.mean()
-    slope, intercept = np.polyfit(x, y, 1)
-    resid  = y - (slope * x + intercept)
-    dof    = max(n - 2, 1)
-    sigma2 = np.sum(resid**2) / dof; sxx = np.sum(x**2)
-    if sxx == 0: return np.nan, np.nan
-    se   = np.sqrt(sigma2 / sxx)
-    rho1 = lag1_autocorr(resid)
-    if np.isnan(rho1): neff = float(n)
-    else:
-        denom = 1.0 + rho1
-        neff  = float(n) * (1.0 - rho1) / denom if denom > 1e-6 else float(n)
-        neff  = max(neff, 3.0)
-    se_adj = se * np.sqrt(float(n) / neff)
-    df     = max(int(np.floor(neff - 2)), 1)
-    tstat  = slope / se_adj if se_adj > 0 else np.nan
-    pval   = 2.0 * tdist.sf(abs(tstat), df=df)
-    return float(slope), float(pval)
-
-def compute_ols_field(da, years):
-    years_f = years.astype(float)
-    slope, pval = xr.apply_ufunc(
-        ols_pixel, da, input_core_dims=[["year"]],
-        output_core_dims=[[], []], vectorize=True,
-        output_dtypes=[float, float], kwargs={"years": years_f})
-    return slope.compute(), pval.compute()
-
-def regrid_to_m2(da, lat_name, lon_name):
-    da_rg = da.interp({lat_name: M2_LAT, lon_name: M2_LON},
-                      method="linear",
-                      kwargs={"bounds_error": False, "fill_value": None})
-    rename = {}
-    if lat_name != "lat": rename[lat_name] = "lat"
-    if lon_name != "lon": rename[lon_name] = "lon"
-    if rename: da_rg = da_rg.rename(rename)
-    return da_rg
-
-def load_era5_trends(fpath):
-    log("Loading ERA5 ssrd ...")
-    if not os.path.exists(fpath): log(f"  [ERROR] not found: {fpath}"); return None
-    ds = xr.open_dataset(fpath); da = ds["ssrd"]
-    time_coord = "valid_time" if "valid_time" in da.coords else "time"
-    times = da[time_coord]
-    mask  = (times.dt.month == MONTH) & (times.dt.year >= ERA5_START) & (times.dt.year <= ERA5_END)
-    da_oct = da.sel({time_coord: mask})
-    valid_years = da_oct[time_coord].dt.year.values
-    log(f"  ERA5: {len(valid_years)} October months ({valid_years.min()}–{valid_years.max()})")
-    da_oct = da_oct / SECS_PER_MONTH
-    da_oct = da_oct.assign_coords({time_coord: valid_years}).rename({time_coord: "year"})
-    lat_name = "latitude" if "latitude" in da_oct.coords else "lat"
-    lon_name = "longitude" if "longitude" in da_oct.coords else "lon"
-    da_oct = da_oct.sortby(lat_name)
-    if da_oct[lon_name].values.max() > 180.5:
-        da_oct = da_oct.assign_coords({lon_name: ((da_oct[lon_name]+180)%360)-180})
-        da_oct = da_oct.sortby(lon_name)
-    log("  Regridding ERA5 ...")
-    da_rg = regrid_to_m2(da_oct, lat_name, lon_name)
-    log("  Computing OLS for ERA5 ...")
-    slope, pval = compute_ols_field(da_rg, valid_years)
-    slope = slope.assign_coords(lat=M2_LAT, lon=M2_LON)
-    pval  = pval.assign_coords(lat=M2_LAT, lon=M2_LON)
-    ds.close(); return slope, pval
-
-def load_merra2_trends(merra2_dir):
-    log("Loading MERRA-2 SWGDN ...")
-    pattern   = os.path.join(merra2_dir, "MERRA2_*.tavgM_2d_rad_Nx.*.nc4")
-    all_files = sorted(glob.glob(pattern))
-    all_files = [f for f in all_files if not any(f.endswith(f".nc4.{i}") for i in range(1,10))]
-    if not all_files: log(f"  [ERROR] No MERRA-2 files in {merra2_dir}"); return None
-    oct_files, valid_years = [], []
-    for f in all_files:
-        stem = os.path.basename(f).replace(".nc4",""); yyyymm = stem.split(".")[-1]
-        if len(yyyymm) != 6: continue
-        yr, mo = int(yyyymm[:4]), int(yyyymm[4:])
-        if mo == MONTH and MERRA2_START <= yr <= MERRA2_END:
-            oct_files.append(f); valid_years.append(yr)
-    if not oct_files: log("  [ERROR] No October MERRA-2 files found"); return None
-    valid_years = np.array(valid_years, dtype=int)
-    log(f"  MERRA-2: {len(oct_files)} October files ({valid_years.min()}–{valid_years.max()})")
-    slices = []
-    for f in oct_files:
+def stack_years(files, varname, label, fill_ok):
+    """{year: path} -> (year, lat, lon) of one variable, skipping unreadable files."""
+    slices, years, missing = [], [], []
+    for yr in range(START, END + 1):
+        f = files.get(yr)
+        if f is None:
+            missing.append(yr)
+            continue
         try:
             with xr.open_dataset(f) as ds:
-                da = ds["SWGDN"].squeeze(drop=True).load()
-                da = da.where(da < 1e14)
-        except Exception as e: log(f"  [WARN] {f}: {e}"); continue
-        slices.append(da)
-    if not slices: log("  [ERROR] No MERRA-2 slices loaded"); return None
-    stacked = xr.concat(slices, dim="year"); stacked["year"] = valid_years
-    stacked = stacked.sortby("lat").sortby("lon")
-    log("  Computing OLS for MERRA-2 ...")
-    slope, pval = compute_ols_field(stacked, valid_years)
-    slope = slope.assign_coords(lat=stacked.lat.values, lon=stacked.lon.values)
-    pval  = pval.assign_coords(lat=stacked.lat.values, lon=stacked.lon.values)
-    return slope, pval
+                v = varname if varname in ds else varname.lower()
+                da = ds[v].squeeze(drop=True).load()
+            slices.append(da.where(fill_ok(da)))
+            years.append(yr)
+        except Exception as e:
+            log(f"  [WARN] {label} {os.path.basename(f)}: {type(e).__name__}: {e}")
+    if missing:
+        log(f"  [WARN] no {label} file for {len(missing)} year(s): {missing}")
+    if not slices:
+        log(f"  [ERROR] no {label} data loaded")
+        return None
+    log(f"  {label}: {len(years)} years ({years[0]}-{years[-1]})")
+    return xr.concat(slices, "year").assign_coords(year=np.array(years))
 
-def load_clara_trends(clara_dir):
-    log("Loading CLARA-A3 SIS ...")
-    slices, valid_years = [], []
-    for yr in range(CLARA_START, CLARA_END+1):
-        pattern = os.path.join(clara_dir, f"SISmm{yr}1001*.nc")
-        files   = sorted(glob.glob(pattern))
-        if not files: log(f"  [WARN] No CLARA file for {yr}"); continue
-        with xr.open_dataset(files[0]) as ds:
-            varname = "SIS" if "SIS" in ds else "sis"
-            if varname not in ds: continue
-            da = ds[varname].squeeze().load(); da = da.where(da > -900)
-        slices.append(da); valid_years.append(yr)
-    if not slices: log("  [ERROR] No CLARA files loaded"); return None
-    log(f"  CLARA: {len(valid_years)} years ({valid_years[0]}–{valid_years[-1]})")
-    stacked = xr.concat(slices, dim="year"); stacked["year"] = np.array(valid_years, dtype=int)
-    lon_name = "lon" if "lon" in stacked.coords else "longitude"
-    lat_name = "lat" if "lat" in stacked.coords else "latitude"
-    if stacked[lon_name].values.max() > 180.5:
-        stacked = stacked.assign_coords({lon_name: ((stacked[lon_name]+180)%360)-180})
-        stacked = stacked.sortby(lon_name)
-    stacked = stacked.sortby(lat_name)
-    log("  Regridding CLARA ...")
-    stacked_rg = regrid_to_m2(stacked, lat_name, lon_name)
-    log("  Computing OLS for CLARA ...")
-    slope, pval = compute_ols_field(stacked_rg, np.array(valid_years, dtype=int))
-    slope = slope.assign_coords(lat=M2_LAT, lon=M2_LON)
-    pval  = pval.assign_coords(lat=M2_LAT, lon=M2_LON)
-    return slope, pval
 
-def load_sarah_trends(sarah_dir):
-    log("Loading SARAH-3 SIS ...")
-    slices, valid_years = [], []
-    for yr in range(SARAH_START, SARAH_END+1):
-        pattern = os.path.join(sarah_dir, f"SISmm{yr}{MONTH:02d}01*.nc")
-        files   = sorted(glob.glob(pattern))
-        if not files: log(f"  [WARN] No SARAH file for {yr}"); continue
-        try:
-            with xr.open_dataset(files[0]) as ds:
-                varname = "SIS" if "SIS" in ds else "sis"
-                if varname not in ds: continue
-                da = ds[varname].squeeze().load(); da = da.where(da > -900)
-        except Exception as e: log(f"  [WARN] {files[0]}: {e}"); continue
-        slices.append(da); valid_years.append(yr)
-    if not slices: log("  [ERROR] No SARAH files loaded"); return None
-    log(f"  SARAH-3: {len(valid_years)} years ({valid_years[0]}–{valid_years[-1]})")
-    stacked = xr.concat(slices, dim="year"); stacked["year"] = np.array(valid_years, dtype=int)
-    lon_name = "lon" if "lon" in stacked.coords else "longitude"
-    lat_name = "lat" if "lat" in stacked.coords else "latitude"
-    if stacked[lon_name].values.max() > 180.5:
-        stacked = stacked.assign_coords({lon_name: ((stacked[lon_name]+180)%360)-180})
-        stacked = stacked.sortby(lon_name)
-    stacked = stacked.sortby(lat_name)
-    log("  Regridding SARAH-3 ...")
-    stacked_rg = stacked.interp({lat_name: M2_LAT, lon_name: M2_LON},
-                                method="linear",
-                                kwargs={"bounds_error": False, "fill_value": np.nan})
-    rename = {}
-    if lat_name != "lat": rename[lat_name] = "lat"
-    if lon_name != "lon": rename[lon_name] = "lon"
-    if rename: stacked_rg = stacked_rg.rename(rename)
-    log("  Computing OLS for SARAH-3 ...")
-    slope, pval = compute_ols_field(stacked_rg, np.array(valid_years, dtype=int))
-    slope = slope.assign_coords(lat=M2_LAT, lon=M2_LON)
-    pval  = pval.assign_coords(lat=M2_LAT, lon=M2_LON)
-    return slope, pval
+_merra2_index = {}
 
-def make_figure():
-    matplotlib.rcParams.update({
-        "font.family":     "sans-serif",
-        "font.sans-serif": ["DejaVu Sans", "Arial", "Helvetica"],
-        "axes.titlesize":  15,
-    })
-    PROJ  = ccrs.PlateCarree()
-    nrows, ncols = 2, 2
 
-    fig, axes = plt.subplots(
-        nrows, ncols,
-        figsize=(6.5*ncols, 3.8*nrows),
-        subplot_kw=dict(projection=PROJ),
-    )
-    fig.subplots_adjust(
-        left=0.08,
-        right=0.98,
-        top=0.87,
-        bottom=0.14,
-        wspace=0.02,
-        hspace=0.12,
-    )
+def merra2_files(month):
+    """{year: path} for one month, keeping the highest version where a month appears twice."""
+    if not _merra2_index:
+        for f in glob.glob(os.path.join(MERRA2_DIR, "MERRA2_*.tavgM_2d_rad_Nx.*.nc4")):
+            m = re.match(r"MERRA2_(\d{3})\.tavgM_2d_rad_Nx\.(\d{4})(\d{2})\.nc4$",
+                         os.path.basename(f))
+            if m:
+                key = (int(m[2]), int(m[3]))
+                if key not in _merra2_index or int(m[1]) > _merra2_index[key][0]:
+                    _merra2_index[key] = (int(m[1]), f)
+    return {y: v[1] for (y, mo), v in _merra2_index.items() if mo == month}
 
-    last_cf = None
 
-    # Row 0 col 0: ERA5
-    log("\n--- ERA5 ---")
-    era5_result = load_era5_trends(ERA5_RAW)
-    ax = axes[0, 0]
-    if era5_result is not None:
-        slope_da, pval_da = era5_result
-        cf = plot_panel(ax, slope_da, pval_da, 0, 0, nrows, ncols, "a)")
-        last_cf = cf
-        ax.set_title("ERA5", fontsize=15, fontweight="bold", pad=6)
-    else:
-        ax.set_visible(False)
+def load_merra2(month=MONTH, quantity="down"):
+    da = stack_years(merra2_files(month), SOURCE["MERRA-2"][quantity], "MERRA-2",
+                     lambda d: np.abs(d) < 1e14)
+    return None if da is None else to_m2_grid(da)
 
-    # Row 0 col 1: MERRA-2
-    log("\n--- MERRA-2 ---")
-    merra2_result = load_merra2_trends(MERRA2_DIR)
-    ax = axes[0, 1]
-    if merra2_result is not None:
-        slope_da, pval_da = merra2_result
-        cf = plot_panel(ax, slope_da, pval_da, 1, 0, nrows, ncols, "b)")
-        last_cf = cf
-        ax.set_title("MERRA-2", fontsize=15, fontweight="bold", pad=6)
-    else:
-        ax.set_visible(False)
 
-    # Row 1 col 0: CLARA-A3
-    log("\n--- CLARA-A3 ---")
-    clara_result = load_clara_trends(CLARA_DIR)
-    ax = axes[1, 0]
-    if clara_result is not None:
-        slope_c, pval_c = clara_result
-        cf = plot_panel(ax, slope_c, pval_c, 0, 1, nrows, ncols, "c)")
-        last_cf = cf
-        ax.set_title("CLARA-A3", fontsize=15, fontweight="bold", pad=10)
-    else:
-        ax.set_visible(False)
+def cmsaf_files(directory, recursive, code, month):
+    """{year: path} for <code>mmYYYYMM01*.nc; the thematic CDR is preferred over the interim."""
+    pattern = os.path.join(directory, "**" if recursive else "", f"*{code}mm*{month:02d}01*.nc")
+    found = {}
+    for f in sorted(glob.glob(pattern, recursive=recursive)):
+        m = re.search(rf"{code}mm(\d{{4}}){month:02d}01", os.path.basename(f))
+        if not m:
+            continue
+        yr, interim = int(m[1]), "AVPOSI" in os.path.basename(f) or "interim" in f
+        if yr not in found or (found[yr][0] and not interim):
+            found[yr] = (interim, f)
+    return {y: v[1] for y, v in found.items()}
 
-    # Row 1 col 1: SARAH-3
-    log("\n--- SARAH-3 ---")
-    sarah_result = load_sarah_trends(SARAH_DIR)
-    ax = axes[1, 1]
-    if sarah_result is not None:
-        slope_s, pval_s = sarah_result
-        cf = plot_panel(ax, slope_s, pval_s, 1, 1, nrows, ncols, "d)",
-                        subtitle="Domain limited to ±65° lat/lon (Meteosat SEVIRI)")
-        last_cf = cf
-        ax.set_title("SARAH-3", fontsize=15, fontweight="bold", pad=10)
-    else:
-        ax.set_visible(False)
 
-    # Row labels — placed dynamically using axes bounding boxes
-    fig.canvas.draw()   # force layout so bbox is populated
-    for ri, lbl in enumerate(["Reanalyses", "Satellite CDRs"]):
-        ax_left = axes[ri, 0]
-        bbox    = ax_left.get_position()          # in figure coords
-        y_ctr   = bbox.y0 + bbox.height / 2.0    # vertical centre of map
-        fig.text(0.01, y_ctr, lbl,
-                 fontsize=12, fontweight="bold",
+def load_clara(month=MONTH, quantity="down"):
+    var = SOURCE["CLARA-A3"][quantity]
+    da = stack_years(cmsaf_files(CLARA_DIR, False, var, month), var, "CLARA-A3",
+                     lambda d: d > -900)
+    return None if da is None else to_m2_grid(da)
+
+
+def load_sarah(month=MONTH, quantity="down"):
+    var = SOURCE["SARAH-3"][quantity]
+    if var is None:
+        return None
+    da = stack_years(cmsaf_files(SARAH_DIR, True, var, month), var, "SARAH-3",
+                     lambda d: d > -900)
+    return None if da is None else to_m2_grid(da)
+
+
+LOADERS = {"ERA5": load_era5, "MERRA-2": load_merra2, "CLARA-A3": load_clara,
+           "SARAH-3": load_sarah}
+
+
+# ---------------------------------------------------------------- statistics (vectorised)
+def ols_stats(da):
+    """Per-point OLS trend (per decade) and AR(1)-corrected p along 'year'."""
+    da = da.reindex(year=np.arange(int(da.year.min()), int(da.year.max()) + 1))  # gaps -> NaN
+    ok = da.notnull()
+    n = ok.sum("year")
+    x = da.year.astype(float).where(ok)
+    xa, ya = x - x.mean("year"), da - da.mean("year")
+    sxx = (xa ** 2).sum("year")
+    slope = (xa * ya).sum("year") / sxx
+    resid = ya - slope * xa
+    ssr = (resid ** 2).sum("year")
+    r1 = (resid * resid.shift(year=1)).sum("year") / ssr
+    n_eff = np.minimum(n * (1 - r1) / (1 + r1), n)
+    se = np.sqrt((ssr / (n_eff - 2) / sxx).where(n_eff > 2))
+    p = xr.apply_ufunc(lambda t, df: 2 * stats.t.sf(np.abs(t), df), slope / se, n_eff - 2)
+    out = xr.Dataset({"trend": DECADE * slope, "p": p, "n": n, "r1": r1, "n_eff": n_eff})
+    return out.where((n >= MIN_YEARS) & (n_eff > 2))
+
+
+def fdr_mask(p):
+    """Benjamini-Hochberg over one map: True where the adjusted p < FDR_ALPHA."""
+    v, sig = np.asarray(p), np.zeros(np.shape(p), bool)
+    ok = np.isfinite(v)
+    if ok.any():
+        sig[ok] = stats.false_discovery_control(v[ok]) < FDR_ALPHA
+    return sig
+
+
+# ---------------------------------------------------------------- plotting
+def add_map_features(ax):
+    ax.add_feature(cfeature.OCEAN.with_scale("110m"), zorder=2, facecolor="white")
+    ax.add_feature(cfeature.LAKES.with_scale("110m"), zorder=2, facecolor="white")
+    ax.coastlines(resolution="110m", linewidth=0.4, zorder=3)
+    ax.set_global()
+
+
+def add_gridlines(ax, left_labels=False, bottom_labels=False):
+    gl = ax.gridlines(draw_labels=True, linewidth=0.3, color="black", alpha=0.45, linestyle=":")
+    gl.top_labels = gl.right_labels = False
+    gl.left_labels, gl.bottom_labels = left_labels, bottom_labels
+    gl.xlocator = mplticker.FixedLocator([-120, -60, 0, 60, 120])
+    gl.ylocator = mplticker.FixedLocator([-60, -30, 0, 30, 60])
+    gl.xformatter, gl.yformatter = LongitudeFormatter(), LatitudeFormatter()
+    gl.xlabel_style = {"size": 9, "color": "black", "rotation": 45}
+    gl.ylabel_style = {"size": 9, "color": "black"}
+
+
+def plot_panel(ax, st, col, row, nrows, label, levels):
+    cf = ax.contourf(st.lon, st.lat, st.trend.values, levels=levels, cmap="RdBu_r",
+                     extend="both", antialiased=False, transform=ccrs.PlateCarree(), zorder=1)
+    sig = fdr_mask(st.p.values)
+    keep = np.zeros_like(sig)
+    keep[::DOT_EVERY, ::DOT_EVERY] = True
+    lon2, lat2 = np.meshgrid(st.lon, st.lat)
+    # white centre, black edge: visible on any colour; under the ocean mask, so land only
+    ax.scatter(lon2[sig & keep], lat2[sig & keep], s=DOT_SIZE, facecolor="white",
+               edgecolor="black", linewidths=0.4, transform=ccrs.PlateCarree(), zorder=1.5)
+    add_map_features(ax)
+    add_gridlines(ax, left_labels=(col == 0), bottom_labels=(row == nrows - 1))
+    ax.text(0.02, 0.97, label, transform=ax.transAxes, fontsize=10, fontweight="bold",
+            va="top", ha="left", zorder=5,
+            bbox=dict(facecolor="white", edgecolor="none", alpha=0.7, boxstyle="round,pad=0.15"))
+    return cf
+
+
+def make_figure(results, month, quantity, out_path):
+    """2 x 2 global maps laid out in inches (no bbox_inches='tight', which crops cartopy maps)."""
+    matplotlib.rcParams.update({"font.family": "sans-serif",
+                                "font.sans-serif": ["DejaVu Sans", "Arial", "Helvetica"]})
+    levels = np.linspace(-CLIM[quantity], CLIM[quantity], 21)
+    W, left, right, gap_x = 14.0, 1.25, 0.35, 0.45
+    mw = (W - left - right - gap_x) / 2
+    mh = mw / 2                                          # global PlateCarree: 360 x 180 deg
+    tops = [1.55, 1.55 + mh + 1.35]                      # inches from the top of the figure
+    H = tops[1] + mh + 1.75
+    fig = plt.figure(figsize=(W, H))
+    for k, name in enumerate(NAMES):
+        r, c = divmod(k, 2)
+        x0 = left + c * (mw + gap_x)
+        ax = fig.add_axes([x0 / W, 1 - (tops[r] + mh) / H, mw / W, mh / H],
+                          projection=ccrs.PlateCarree())
+        fig.text((x0 + mw / 2) / W, 1 - (tops[r] - 0.12) / H, name, ha="center",
+                 va="bottom", fontsize=15, fontweight="bold")
+        if results.get(name) is None:
+            add_map_features(ax)
+            ax.text(0.5, 0.5, NOT_AVAILABLE.get((name, quantity), "no data for this month"),
+                    transform=ax.transAxes, ha="center", va="center", fontsize=12, zorder=6,
+                    bbox=dict(facecolor="white", edgecolor="0.6", boxstyle="round,pad=0.4"))
+            continue
+        plot_panel(ax, results[name], c, r, 2, f"{'abcd'[k]})", levels)
+    for r, lbl in enumerate(["Reanalyses", "Satellite CDRs"]):
+        fig.text(0.25 / W, 1 - (tops[r] + mh / 2) / H, lbl, fontsize=13, fontweight="bold",
                  rotation=90, va="center", ha="center")
+    sm = plt.cm.ScalarMappable(norm=matplotlib.colors.BoundaryNorm(levels, 256, extend="both"),
+                               cmap="RdBu_r")
+    cb = fig.colorbar(sm, cax=fig.add_axes([0.12, 0.85 / H, 0.76, 0.2 / H]),
+                      orientation="horizontal", extend="both", ticks=levels[::3])
+    cb.set_label(r"W m$^{-2}$ decade$^{-1}$", fontsize=11)
+    cb.ax.tick_params(labelsize=10)
+    fig.suptitle(f"{calendar.month_name[month]} decadal OLS trends in {LABEL[quantity]} SW "
+                 f"radiation ({START}-{END})\nMarkers: significant after FDR "
+                 f"(α = {FDR_ALPHA:.2f}, AR(1)-corrected)",
+                 fontsize=15, fontweight="bold", y=1 - 0.15 / H, va="top")
+    fig.savefig(out_path, dpi=300, facecolor="white")
+    plt.close(fig)
+    log(f"  Saved: {out_path}")
 
-    # Colourbar — moved down to give lat labels room
-    if last_cf is not None:
-        cbar_ax = fig.add_axes([0.10, 0.05, 0.80, 0.022])
-        cbar = fig.colorbar(last_cf, cax=cbar_ax,
-                            orientation="horizontal", extend="both")
-        cbar.set_label(r"W m$^{-2}$ dec$^{-1}$", fontsize=11)
-        cbar.ax.tick_params(labelsize=10)
 
-    fig.suptitle(
-        "October decadal OLS trends in downwelling SW radiation (1983-2024)\n"
-        "Grey: fails FDR significance (α = 0.10)  ",
-        fontsize=15, fontweight="bold", y=0.975,
-    )
+def main():
+    log("=" * 70)
+    log(f"SW trends, every month: {' | '.join(NAMES)}, {START}-{END}")
+    log("=" * 70)
+    for quantity in QUANTITIES:
+        folder = os.path.join(OUT_DIR, f"sw_{quantity}")
+        os.makedirs(folder, exist_ok=True)
+        for month in MONTHS:
+            log(f"\n===== SW {quantity}, {calendar.month_name[month]} =====")
+            results = {}
+            for name in NAMES:
+                if SOURCE[name][quantity] is None:
+                    continue
+                log(f"--- {name} ---")
+                data = LOADERS[name](month, quantity)
+                if data is None:
+                    continue
+                st = ols_stats(data)
+                sig = fdr_mask(st.p.values)
+                log(f"  median n_eff {float(st.n_eff.median()):.0f} of n "
+                    f"{float(st.n.median()):.0f}; {100 * sig.sum() / max(np.isfinite(st.p.values).sum(), 1):.0f}"
+                    "% of points FDR-significant")
+                results[name] = st
+            make_figure(results, month, quantity, os.path.join(
+                folder, f"SW_{quantity}_trends_{month:02d}_{calendar.month_abbr[month]}.png"))
+    log("\nDone.")
 
-    outfile = os.path.join(OUT_DIR,
-                           "ERA5_MERRA2_CLARA_SARAH_October_SW_trends.png")
-    plt.savefig(outfile, dpi=300, bbox_inches="tight")
-    plt.close()
-    log(f"\nSaved: {outfile}")
 
 if __name__ == "__main__":
-    log("="*70)
-    log("October SW↓ trends: ERA5 | MERRA-2 | CLARA-A3 | SARAH-3")
-    log(f"Common period: {ERA5_START}–{ERA5_END}")
-    log("="*70)
-    make_figure()
-    log("\nDone.")
+    main()

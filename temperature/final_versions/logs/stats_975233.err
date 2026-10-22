@@ -1,0 +1,6 @@
+ln: failed to create symbolic link '/soge-home/users/jesu4127/RFS': File exists
+Traceback (most recent call last):
+  File "/soge-home/users/jesu4127/Paper_1/temperature/final_versions/checking_assumptions.py", line 44, in <module>
+    months = target_month if target_month in months else months
+                                             ^^^^^^
+NameError: name 'months' is not defined

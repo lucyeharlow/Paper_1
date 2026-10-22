@@ -1,0 +1,136 @@
+============================================
+CHIRTS overlay job
+Job ID: 975231
+Node: ouce-cn47
+Started: Thu 15 Oct 09:53:12 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+  CHIRTS: climatology uses 1991-2016
+
+Q-Q plots of OLS residuals...
+  ERA5                       96,360 cell-month series, 9.9% fail Shapiro-Wilk at 5%
+  MERRA-2                    19,440 cell-month series, 13.5% fail Shapiro-Wilk at 5%
+  JRA-3Q                     42,300 cell-month series, 9.6% fail Shapiro-Wilk at 5%
+  CHIRTS                    2,389,584 cell-month series, 5.2% fail Shapiro-Wilk at 5%
+  NOAA Global Temp v6.1.0       252 cell-month series, 4.8% fail Shapiro-Wilk at 5%
+  CRUTEM5                        29 cell-month series, 0.0% fail Shapiro-Wilk at 5%
+  Saved diagnostics_qq.png
+
+Autocorrelation of OLS residuals...
+  Saved diagnostics_autocorrelation.png
+
+CRUTEM5 completeness per grid box...
+  Saved diagnostics_crutem5_completeness.png
+  lat  lon  land_fraction  used_after_land_mask  pct_months_present  first_year  n_complete_calendar_months complete_months
+-12.5 12.5           0.38                 False           67.210145      1980.0                           0                
+-12.5 17.5           1.00                  True           44.927536      1980.0                           0                
+-12.5 22.5           1.00                  True           30.978261      1980.0                           0                
+-12.5 27.5           1.00                  True           70.289855      1980.0                           0                
+-12.5 32.5           1.00                  True           75.362319      1980.0                           0                
+-12.5 37.5           1.00                  True           93.659420      1980.0                           0                
+-17.5 12.5           0.58                  True           60.507246      1980.0                           0                
+-17.5 17.5           1.00                  True           37.137681      1980.0                           0                
+-17.5 22.5           1.00                  True           75.362319      1980.0                           0                
+-17.5 27.5           1.00                  True           77.898551      1980.0                           0                
+-17.5 32.5           0.99                  True           98.007246      1980.0                           5       F,M,J,J,N
+-17.5 37.5           0.57                  True           92.934783      1980.0                           2             A,S
+-22.5 12.5           0.18                 False            0.000000         NaN                           0                
+-22.5 17.5           1.00                  True           59.601449      1980.0                           0                
+-22.5 22.5           1.00                  True           31.702899      1980.0                           0                
+-22.5 27.5           1.00                  True           97.282609      1980.0                           4         A,S,O,N
+-22.5 32.5           0.99                  True           71.557971      1980.0                           0                
+-22.5 37.5           0.06                 False           74.094203      1980.0                           0                
+-27.5 12.5           0.00                 False            0.000000         NaN                           0                
+-27.5 17.5           0.85                  True           76.086957      1980.0                           0                
+-27.5 22.5           1.00                  True           98.369565      1980.0                           6     J,J,A,S,O,N
+-27.5 27.5           1.00                  True           98.188406      1980.0                           5       J,J,A,S,O
+-27.5 32.5           0.50                  True           92.934783      1980.0                           0                
+-27.5 37.5           0.00                 False            0.000000         NaN                           0                
+-32.5 12.5           0.00                 False            0.000000         NaN                           0                
+-32.5 17.5           0.35                 False           98.369565      1980.0                           6     J,J,A,S,O,N
+-32.5 22.5           0.84                  True           95.833333      1980.0                           2             A,N
+-32.5 27.5           0.60                  True           98.188406      1980.0                           5       J,A,S,O,N
+-32.5 32.5           0.03                 False           34.057971      1980.0                           0                
+-32.5 37.5           0.00                 False            0.000000         NaN                           0                
+
+Diagnostics written to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/plots
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+  CHIRTS: climatology uses 1991-2016
+
+Q-Q plots of OLS residuals...
+  ERA5                       96,360 cell-month series, 9.9% fail Shapiro-Wilk at 5%
+  MERRA-2                    19,440 cell-month series, 13.5% fail Shapiro-Wilk at 5%
+  JRA-3Q                     42,300 cell-month series, 9.6% fail Shapiro-Wilk at 5%
+  CHIRTS                    2,389,584 cell-month series, 5.2% fail Shapiro-Wilk at 5%
+  NOAA Global Temp v6.1.0       252 cell-month series, 4.8% fail Shapiro-Wilk at 5%
+  CRUTEM5                        29 cell-month series, 0.0% fail Shapiro-Wilk at 5%
+  Saved diagnostics_qq.png
+
+Autocorrelation of OLS residuals...
+  Saved diagnostics_autocorrelation.png
+
+CRUTEM5 completeness per grid box...
+  Saved diagnostics_crutem5_completeness.png
+  lat  lon  land_fraction  used_after_land_mask  pct_months_present  first_year  n_complete_calendar_months complete_months
+-12.5 12.5           0.38                 False           67.210145      1980.0                           0                
+-12.5 17.5           1.00                  True           44.927536      1980.0                           0                
+-12.5 22.5           1.00                  True           30.978261      1980.0                           0                
+-12.5 27.5           1.00                  True           70.289855      1980.0                           0                
+-12.5 32.5           1.00                  True           75.362319      1980.0                           0                
+-12.5 37.5           1.00                  True           93.659420      1980.0                           0                
+-17.5 12.5           0.58                  True           60.507246      1980.0                           0                
+-17.5 17.5           1.00                  True           37.137681      1980.0                           0                
+-17.5 22.5           1.00                  True           75.362319      1980.0                           0                
+-17.5 27.5           1.00                  True           77.898551      1980.0                           0                
+-17.5 32.5           0.99                  True           98.007246      1980.0                           5       F,M,J,J,N
+-17.5 37.5           0.57                  True           92.934783      1980.0                           2             A,S
+-22.5 12.5           0.18                 False            0.000000         NaN                           0                
+-22.5 17.5           1.00                  True           59.601449      1980.0                           0                
+-22.5 22.5           1.00                  True           31.702899      1980.0                           0                
+-22.5 27.5           1.00                  True           97.282609      1980.0                           4         A,S,O,N
+-22.5 32.5           0.99                  True           71.557971      1980.0                           0                
+-22.5 37.5           0.06                 False           74.094203      1980.0                           0                
+-27.5 12.5           0.00                 False            0.000000         NaN                           0                
+-27.5 17.5           0.85                  True           76.086957      1980.0                           0                
+-27.5 22.5           1.00                  True           98.369565      1980.0                           6     J,J,A,S,O,N
+-27.5 27.5           1.00                  True           98.188406      1980.0                           5       J,J,A,S,O
+-27.5 32.5           0.50                  True           92.934783      1980.0                           0                
+-27.5 37.5           0.00                 False            0.000000         NaN                           0                
+-32.5 12.5           0.00                 False            0.000000         NaN                           0                
+-32.5 17.5           0.35                 False           98.369565      1980.0                           6     J,J,A,S,O,N
+-32.5 22.5           0.84                  True           95.833333      1980.0                           2             A,N
+-32.5 27.5           0.60                  True           98.188406      1980.0                           5       J,A,S,O,N
+-32.5 32.5           0.03                 False           34.057971      1980.0                           0                
+-32.5 37.5           0.00                 False            0.000000         NaN                           0                
+
+Diagnostics written to /soge-home/users/jesu4127/Paper_1/temperature/final_versions/plots
+
+============================================
+Finished: Thu 15 Oct 10:18:21 UTC 2026
+============================================

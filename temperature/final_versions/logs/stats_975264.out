@@ -1,0 +1,100 @@
+============================================
+CHIRTS overlay job
+Job ID: 975264
+Node: ouce-cn55
+Started: Thu 15 Oct 18:15:43 UTC 2026
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+  CHIRTS: climatology uses 1991-2016
+
+October regression and AR-order diagnostics...
+  Saved october_regression_diagnostics.png
+  Saved october_ar_order_diagnostics.png
+  Saved october_ar_order_maps.png
+dataset                       scope model           phi    AICc  delta_AICc  ljung_box_Q  ljung_box_lags  ljung_box_p  n_years  n_cells  pct_area_best_AR0  pct_area_best_AR1  pct_area_best_AR2  pct_area_LB_rejects_OLS_residuals  pct_area_LB_rejects_AR1_innovations
+   ERA5             regional series AR(0)               -57.816       4.239       12.324             8.0        0.137     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5             regional series AR(1)        -0.177 -57.066       4.990       10.852             8.0        0.145     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5             regional series AR(2) -0.269;-0.390 -62.055       0.000        4.541             8.0        0.604     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(0)               -51.571       0.934        8.564             8.0        0.380     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(1)        -0.172 -50.726       1.779        6.636             8.0        0.468     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(2) -0.230;-0.294 -52.505       0.000        3.673             8.0        0.721     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(0)               -61.311       5.822       13.526             8.0        0.095     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(1)        -0.147 -60.121       7.012       12.703             8.0        0.080     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(2) -0.232;-0.431 -67.133       0.000        5.434             8.0        0.489     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(0)               -58.964       1.370       17.576             6.0        0.007     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(1)        -0.330 -60.335       0.000        8.175             6.0        0.147     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(2) -0.344;-0.037 -57.927       2.408        8.131             6.0        0.087     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(0)               -66.802       0.000       12.560             8.0        0.128     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(1)        -0.077 -64.874       1.927       11.250             8.0        0.128     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(2) -0.103;-0.193 -64.282       2.520        9.461             8.0        0.149     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(0)               -23.842       0.000        5.858             8.0        0.663     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(1)        -0.021 -21.668       2.175        5.938             8.0        0.547     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(2) -0.040;-0.258 -22.927       0.915        2.454             8.0        0.874     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5 grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   8030.0             70.654              8.990             20.356                              7.853                                8.508
+ MERRA2 grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   1620.0             74.788              6.281             18.931                              6.236                                5.801
+ JRA-3Q grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   3525.0             72.243              7.599             20.158                              7.363                                7.832
+ CHIRTS grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN 199132.0             73.196             23.012              3.792                             10.838                                2.664
+   NOAA grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN     21.0             75.967              9.880             14.153                              4.730                                4.730
+ CRUTEM grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN      4.0             74.952              0.000             25.048                              0.000                                0.000
+
+Python version:
+Python 3.13.14
+
+Starting analysis...
+============================================
+Loading (domain only, monthly, into memory)...
+  merra_2: 1980-2025 (46 complete years)
+  jra_3q: 1980-2025 (46 complete years)
+
+LAND MASK (cells >= 50% land)
+  ERA5                        8,030 of  12,221 cells are land
+  MERRA-2                     1,620 of   2,499 cells are land
+  JRA-3Q                      3,525 of   5,280 cells are land
+  CHIRTS                    199,141 of 300,000 cells are land
+  NOAA Global Temp v6.1.0        21 of      30 cells are land
+  CRUTEM5                        21 of      30 cells are land
+  CHIRTS: climatology uses 1991-2016
+
+October regression and AR-order diagnostics...
+  Saved october_regression_diagnostics.png
+  Saved october_ar_order_diagnostics.png
+  Saved october_ar_order_maps.png
+dataset                       scope model           phi    AICc  delta_AICc  ljung_box_Q  ljung_box_lags  ljung_box_p  n_years  n_cells  pct_area_best_AR0  pct_area_best_AR1  pct_area_best_AR2  pct_area_LB_rejects_OLS_residuals  pct_area_LB_rejects_AR1_innovations
+   ERA5             regional series AR(0)               -57.816       4.239       12.324             8.0        0.137     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5             regional series AR(1)        -0.177 -57.066       4.990       10.852             8.0        0.145     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5             regional series AR(2) -0.269;-0.390 -62.055       0.000        4.541             8.0        0.604     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(0)               -51.571       0.934        8.564             8.0        0.380     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(1)        -0.172 -50.726       1.779        6.636             8.0        0.468     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ MERRA2             regional series AR(2) -0.230;-0.294 -52.505       0.000        3.673             8.0        0.721     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(0)               -61.311       5.822       13.526             8.0        0.095     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(1)        -0.147 -60.121       7.012       12.703             8.0        0.080     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ JRA-3Q             regional series AR(2) -0.232;-0.431 -67.133       0.000        5.434             8.0        0.489     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(0)               -58.964       1.370       17.576             6.0        0.007     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(1)        -0.330 -60.335       0.000        8.175             6.0        0.147     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CHIRTS             regional series AR(2) -0.344;-0.037 -57.927       2.408        8.131             6.0        0.087     34.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(0)               -66.802       0.000       12.560             8.0        0.128     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(1)        -0.077 -64.874       1.927       11.250             8.0        0.128     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   NOAA             regional series AR(2) -0.103;-0.193 -64.282       2.520        9.461             8.0        0.149     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(0)               -23.842       0.000        5.858             8.0        0.663     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(1)        -0.021 -21.668       2.175        5.938             8.0        0.547     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+ CRUTEM             regional series AR(2) -0.040;-0.258 -22.927       0.915        2.454             8.0        0.874     46.0      NaN                NaN                NaN                NaN                                NaN                                  NaN
+   ERA5 grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   8030.0             70.654              8.990             20.356                              7.853                                8.508
+ MERRA2 grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   1620.0             74.788              6.281             18.931                              6.236                                5.801
+ JRA-3Q grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN   3525.0             72.243              7.599             20.158                              7.363                                7.832
+ CHIRTS grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN 199132.0             73.196             23.012              3.792                             10.838                                2.664
+   NOAA grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN     21.0             75.967              9.880             14.153                              4.730                                4.730
+ CRUTEM grid cells (% of land area)   NaN           NaN     NaN         NaN          NaN             NaN          NaN      NaN      4.0             74.952              0.000             25.048                              0.000                                0.000
+
+============================================
+Finished: Thu 15 Oct 19:00:45 UTC 2026
+============================================

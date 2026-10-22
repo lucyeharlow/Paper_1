@@ -1,0 +1,2 @@
+/hn01-home/jesu4127/Paper_1/circulation/merra2_3_row_detrended_corr.py:145: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'lat' ('lat',) The recommendation is to set join explicitly for this case.
+  return xr.concat([items[y] for y in years], "year").assign_coords(year=years)
